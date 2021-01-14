@@ -30,6 +30,7 @@ jobs:
         if: env.VIDEOHEADER
         run: |
           npm install
+          npm install got
       - name: '运行 【笑谱】'
         if: env.VIDEOHEADER
         run: |
