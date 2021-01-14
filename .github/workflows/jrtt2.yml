@@ -6,11 +6,13 @@ name: 今日头条极速版
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/13 * * * *'
+    - cron: '*/15 8-23 * * *'
   watch:
     types: started
   repository_dispatch:
     types: jrtt
+env:
+  TZ: Asia/Shanghai
 jobs:
   build:
 
