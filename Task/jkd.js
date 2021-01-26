@@ -2,11 +2,19 @@
 聚看点，所有任务+阅读
 欢迎填写邀请码：24224873
 阅读一篇文章获取Cookie
+=============环境变量=============
+JKD_COOKIE cookies，可选择用&、@、换行隔开
+JKD_USER_AGENT 用户ua，默认为ios
+JKD_WITHDRAW 提现金额
+JKD_FAKE_IOS 将安卓cookie伪装成iOS 默认伪装，填写任意值
+JKD_NOTIFY 是否开启通知，开启则22点通知一次
 ================Qx==============
 [task_local]
-0,30 * * * * https://raw.githubusercontent.com/shylocks/Loon/main/jkd.js, tag=聚看点
+0,30 * * * * https://raw.githubusercontent.com/adw2s/Action/Task/jkd.js, tag=聚看点
 [rewrite_local]
 https:\/\/www\.xiaodouzhuan\.cn\/jkd\/minfo\/call\.action url script-request-body https://raw.githubusercontent.com/shylocks/Loon/main/jkd.js
+
+https:\/\/www\.xiaodouzhuan\.cn\/jkd\/minfo\/call\.action url script-request-body https://raw.githubusercontent.com/adw2s/Action/Task/jkd.js
 
 ================Loon==============
 [Script]
