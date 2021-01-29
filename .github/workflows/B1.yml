@@ -48,7 +48,7 @@ jobs:
           npm install -g npm
           npm update
                  
-      - name: '运行 【B】'
+      - name: '运行 【B1】'
         if: env.BBB_CK1         
         run: |
           cd ~/Scripts
