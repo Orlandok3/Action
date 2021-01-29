@@ -75,7 +75,7 @@ $.log(bfbody)
 function bfqd(timeout = 0) {
   return new Promise((resolve) => {
     setTimeout( ()=>{
-      if (typeof $.getdata('bfurl') === "undefined") {
+      if (typeof bfurl === "undefined") {
         $.msg($.name,"",'请先启用获取Cookie脚本！点击本通知可跳转到bigfun!', openurl)
         return
       }
