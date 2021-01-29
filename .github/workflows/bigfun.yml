@@ -19,6 +19,8 @@ jobs:
       Bfurl1: ${{ secrets.Bfurl1 }}
       Bfurl2: ${{ secrets.Bfurl2 }}
       Bfurl3: ${{ secrets.Bfurl3 }}
+      Bfurl4: ${{ secrets.Bfurl4 }}
+      Bfurl5: ${{ secrets.Bfurl5 }}
       
       
     runs-on: ubuntu-latest
@@ -47,5 +49,46 @@ jobs:
           Bfurl: ${{ secrets.Bfurl }}
           Bfhd: ${{ secrets.Bfhd }}
           Bfbody: ${{ secrets.Bfbody }}
-          
+                        
+      - name: '运行 【bigfun1】'
+        if: env.Bfurl         
+        run: |
+          cd ~/Scripts
+          node Task/bigfun.js
+        env:
+          Bfurl: ${{ secrets.Bfurl1 }}
+          Bfhd: ${{ secrets.Bfhd1 }}
+          Bfbody: ${{ secrets.Bfbody1 }} 
+                 
+      - name: '运行 【bigfun2】'
+        if: env.Bfurl         
+        run: |
+          cd ~/Scripts
+          node Task/bigfun.js
+        env:
+          Bfurl: ${{ secrets.Bfurl2 }}
+          Bfhd: ${{ secrets.Bfhd2 }}
+          Bfbody: ${{ secrets.Bfbody2 }}
+                 
+      - name: '运行 【bigfun3】'
+        if: env.Bfurl         
+        run: |
+          cd ~/Scripts
+          node Task/bigfun.js
+        env:
+          Bfurl: ${{ secrets.Bfurl3 }}
+          Bfhd: ${{ secrets.Bfhd3 }}
+          Bfbody: ${{ secrets.Bfbody3 }}         
 
+
+      - name: '运行 【bigfun4】'
+        if: env.Bfurl         
+        run: |
+          cd ~/Scripts
+          node Task/bigfun.js
+        env:
+          Bfurl: ${{ secrets.Bfurl4 }}
+          Bfhd: ${{ secrets.Bfhd4 }}
+          Bfbody: ${{ secrets.Bfbody4 }}
+          
+          
