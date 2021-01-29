@@ -1,10 +1,11 @@
+# 快手视频刷金币测试，抓包获取secrets
 
-name: jukan(聚看点)
+name: Auto_Kuaishou(快手视频浏览)
 
 on:
   workflow_dispatch:
   schedule:
-     - cron: '*/1 * * * *'
+     - cron: '*/30 2,8,16 * * *'
   watch:
     types: started
 jobs:
@@ -12,8 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     env:
-        JUKAN_COOKIE: ${{ secrets.JUKAN_COOKIE }}
-        JUKAN_BODY: ${{ secrets.JUKAN_BODY }}
+        KUAISHOUMV: ${{ secrets.KUAISHOUMV }}
         TZ: Asia/shanghai
     steps:
       - name: Checkout
@@ -27,11 +27,11 @@ jobs:
         run: |
           cd ~/Scripts
           npm install
-      - name: '运行 【聚看点】'
-        if: env.JUKAN_COOKIE
+      - name: '运行 【快手视频】'
+        if: env.KUAISHOUMV
         run: |
           cd ~/Scripts
-          node Task/jukan.js
+          node Task/Auto_Kuaishou.js
         env:
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}

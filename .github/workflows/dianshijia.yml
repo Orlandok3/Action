@@ -1,10 +1,10 @@
 
-name: jukan(聚看点)
+name: dianshijia(电视家)
 
 on:
   workflow_dispatch:
   schedule:
-     - cron: '*/1 * * * *'
+     - cron: '*/30 1-15/2 * * *'
   watch:
     types: started
 jobs:
@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     env:
-        JUKAN_COOKIE: ${{ secrets.JUKAN_COOKIE }}
-        JUKAN_BODY: ${{ secrets.JUKAN_BODY }}
+        DSJ_HEADERS: ${{ secrets.DSJ_HEADERS }}
+        DSJ_DRAWAL: ${{ secrets.DSJ_DRAWAL }}
         TZ: Asia/shanghai
     steps:
       - name: Checkout
@@ -27,12 +27,13 @@ jobs:
         run: |
           cd ~/Scripts
           npm install
-      - name: '运行 【聚看点】'
-        if: env.JUKAN_COOKIE
+      - name: '运行 【电视家】'
+        if: env.DSJ_HEADERS
         run: |
           cd ~/Scripts
-          node Task/jukan.js
+          node Task/dianshijia.js
         env:
+          DSJ_NOTIFY_CONTROL: ${{ secrets.DSJ_NOTIFY_CONTROL }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}

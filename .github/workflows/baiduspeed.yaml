@@ -1,10 +1,9 @@
 
-name: jukan(聚看点)
-
+name: baiduspeed(百度极速版)
 on:
   workflow_dispatch:
   schedule:
-     - cron: '*/1 * * * *'
+     - cron: '42 0-15/2 * * *'
   watch:
     types: started
 jobs:
@@ -12,26 +11,21 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     env:
-        JUKAN_COOKIE: ${{ secrets.JUKAN_COOKIE }}
-        JUKAN_BODY: ${{ secrets.JUKAN_BODY }}
+        BAIDU_COOKIE: ${{ secrets.BAIDU_COOKIE }}
         TZ: Asia/shanghai
     steps:
-      - name: Checkout
-        run: |
-          git clone https://github.com/Sunert/Scripts.git ~/Scripts
+      - uses: actions/checkout@v1
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
       - name: npm install
         run: |
-          cd ~/Scripts
           npm install
-      - name: '运行 【聚看点】'
-        if: env.JUKAN_COOKIE
+      - name: '运行 【百度极速】'
+        if: env.BAIDU_COOKIE
         run: |
-          cd ~/Scripts
-          node Task/jukan.js
+          node task/baidu_speed.js
         env:
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
