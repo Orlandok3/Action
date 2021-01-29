@@ -103,7 +103,7 @@ return new Promise((resolve, reject) => {
      const userinfo = JSON.parse(data)
      if(response.statusCode == 200 && userinfo.code != -1){
 $.log('\n🎉模擬登陸成功\n')
-     notice += '🎉步步寶帳號: '+userinfo.username+'\n'+'🎉當前金幣: '+userinfo.jinbi+'💰 約'+userinfo.money+'元💸\n'
+     notice += '🎉步步寶帳號: '+userinfo.username+'\n'+'🎉當前金幣: '+userinfo.jinbi+'🎉今日金幣: '+userinfo.day_jinbi+'💰 約'+userinfo.money+'元💸\n'
     }else{
      notice += '⚠️異常原因: '+userinfo.msg+'\n'
            }
