@@ -4,7 +4,7 @@ name: dianshijia(电视家)
 on:
   workflow_dispatch:
   schedule:
-     - cron: '*/30 1-15/2 * * *'
+     - cron: '0 1-15/2 * * *'
   watch:
     types: started
 jobs:
