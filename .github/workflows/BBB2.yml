@@ -53,35 +53,35 @@ jobs:
       - name: '运行 【BBB1】'
         if: env.BBB_ck1         
         run: |
-          node BBB.js
+          node Task/BBB.js
         env:
           BBB_ck: ${{ secrets.BBB_ck1 }}
           
       - name: '运行 【BBB2】'
         if: env.BBB_ck2         
         run: |
-          node BBB.js
+          node Task/BBB.js
         env:
           BBB_ck: ${{ secrets.BBB_ck2 }}
           
       - name: '运行 【BBB3】'
         if: env.BBB_ck3         
         run: |
-          node BBB.js
+          node Task/BBB.js
         env:
           BBB_ck: ${{ secrets.BBB_ck3 }}
           
       - name: '运行 【BBB4】'
         if: env.BBB_ck4         
         run: |
-          node BBB.js
+          node Task/BBB.js
         env:
           BBB_ck: ${{ secrets.BBB_ck4 }}
           
       - name: '运行 【BBB5】'
         if: env.BBB_ck         
         run: |
-          node BBB.js
+          node Task/BBB.js
         env:
           BBB_ck: ${{ secrets.BBB_ck5 }}
 
