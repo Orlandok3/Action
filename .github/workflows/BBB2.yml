@@ -16,7 +16,12 @@ env:
 jobs:
   build:
     env:
-      BBB_ck: ${{ secrets.BBB_ck }}
+      BBB_CK: ${{ secrets.BBB_CK }}
+      BBB_CK1: ${{ secrets.BBB_CK1 }}
+      BBB_CK2: ${{ secrets.BBB_CK2 }}
+      BBB_CK3: ${{ secrets.BBB_CK3 }}
+      BBB_CK4: ${{ secrets.BBB_CK4 }}
+      BBB_CK5: ${{ secrets.BBB_CK5 }}
       PUSH_KEY: ${{ secrets.PUSH_KEY }}
       BARK_PUSH: ${{ secrets.BARK_PUSH }}
       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
@@ -37,7 +42,7 @@ jobs:
         with:
           node-version: 12.x
       - name: npm install
-        if: env.BBB_ck
+        if: env.BBB_CK
         run: |
           cd ~/Scripts
           npm install -g npm
