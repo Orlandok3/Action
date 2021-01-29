@@ -22,7 +22,7 @@ jobs:
                   npm install
             - name: "运行【百度签到】"
               run: |
-                  node task/tieba.js
+                  node Task/tieba.js
               env:
                   BDUSS: ${{ secrets.BDUSS }}
                   SEND_KEY: ${{ secrets.SEND_KEY }}
