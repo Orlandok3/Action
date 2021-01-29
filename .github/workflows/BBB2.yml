@@ -28,7 +28,8 @@ jobs:
       
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
-    steps:- name: Checkout
+    steps:
+      - name: Checkout
         run: |
           git clone https://github.com/adw2s/Action.git ~/Scripts
       - name: Use Node.js 12.x
