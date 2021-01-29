@@ -47,7 +47,7 @@ jobs:
         if: env.BBB_ck         
         run: |
           cd ~/Scripts
-          node BBB.js
+          node Task/BBB.js
         env:
           BBB_ck: ${{ secrets.BBB_ck }}
           
