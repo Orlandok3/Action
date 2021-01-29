@@ -37,6 +37,12 @@ let bfurl = $.getdata('bfurl')
 let bfhd = $.getdata('bfhd')
 let bfbody = $.getdata('bfbody')
 !(async () => {
+  if (process.env.Bfurl) {
+    bfurl = process.env.Bfurl
+    bfhd = process.env.Bfhd
+    bfbody = process.env.Bfbody
+  }
+  
   if (typeof $request !== "undefined") {
     await bfck()
   } else {
@@ -76,7 +82,7 @@ function bfqd(timeout = 0) {
       
 let url = {
         url : 'https://api.bigfun.cn/webview/iphone?',
-        headers : JSON.parse($.getdata('bfhd')),
+        headers : JSON.parse(bfhd),
         body : bfbody,}
       $.post(url, async (err, resp, data) => {
         try {
