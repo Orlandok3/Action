@@ -44,51 +44,51 @@ jobs:
           npm update
                  
       - name: '运行 【BBB】'
-        if: env.BBB_ck         
+        if: env.BBB_CK         
         run: |
           cd ~/Scripts
           node Task/BBB.js
         env:
-          BBB_ck: ${{ secrets.BBB_ck }}
+          BBB_ck: ${{ secrets.BBB_CK }}
           
       - name: '运行 【BBB1】'
-        if: env.BBB_ck1         
+        if: env.BBB_CK1         
         run: |
           cd ~/Scripts
           node Task/BBB.js
         env:
-          BBB_ck: ${{ secrets.BBB_ck1 }}
+          BBB_ck: ${{ secrets.BBB_CK1 }}
           
       - name: '运行 【BBB2】'
-        if: env.BBB_ck2         
+        if: env.BBB_CK2         
         run: |
           cd ~/Scripts
           node Task/BBB.js
         env:
-          BBB_ck: ${{ secrets.BBB_ck2 }}
+          BBB_ck: ${{ secrets.BBB_CK2 }}
           
       - name: '运行 【BBB3】'
-        if: env.BBB_ck3         
+        if: env.BBB_CK3         
         run: |
           cd ~/Scripts
           node Task/BBB.js
         env:
-          BBB_ck: ${{ secrets.BBB_ck3 }}
+          BBB_ck: ${{ secrets.BBB_CK3 }}
           
       - name: '运行 【BBB4】'
-        if: env.BBB_ck4         
+        if: env.BBB_CK4         
         run: |
           cd ~/Scripts
           node Task/BBB.js
         env:
-          BBB_ck: ${{ secrets.BBB_ck4 }}
+          BBB_ck: ${{ secrets.BBB_CK4 }}
           
       - name: '运行 【BBB5】'
-        if: env.BBB_ck         
+        if: env.BBB_CK5         
         run: |
           cd ~/Scripts
           node Task/BBB.js
         env:
-          BBB_ck: ${{ secrets.BBB_ck5 }}
+          BBB_ck: ${{ secrets.BBB_CK5 }}
 
 
