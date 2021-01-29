@@ -2,7 +2,7 @@
 adwktt
 轉載備註名字
 打开App获取Cookie
-下載地址：http://bububao.yichengw.cn/?id=524855
+下載地址：http://bububao.yichengw.cn/?id=525644
 
 圈x
 [rewrite_local]
