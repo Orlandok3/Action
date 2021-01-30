@@ -82,11 +82,6 @@ if ($.isNode()) {refreshToken
           CookieArr.push(CookieVal[item])
         }
     });
-  Object.keys(refreshToken).forEach((item) => {
-        if (refreshToken[item]) {
-          refreshTokenArr.push(refreshToken[item])
-        }
-    });
     console.log(`============ 腳本執行-國際標準時間(UTC)：${new Date().toLocaleString()}  =============\n`)
     console.log(`============ 腳本執行-北京時間(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`)
  } else {
