@@ -65,7 +65,7 @@ if ($.isNode()) {refreshToken
    CookieVal = process.env.xpCookie.split('\n');
    console.log(`您選擇的是用換行隔開\n`)
   } else {
-   CookieVal = process.env.xpCookie.split()
+   CookieVal = process.env.xpCookie
   };
   if (process.env.xpRefreshToken&& process.env.xpRefreshToken.indexOf('#') > -1) {
    refreshToken = process.env.xpRefreshToken.split('#');
@@ -75,7 +75,7 @@ if ($.isNode()) {refreshToken
    refreshToken = process.env.xpRefreshToken.split('\n');
    console.log(`您選擇的是用換行隔開\n`)
   } else {
-   refreshToken = process.env.xpRefreshToken.split()
+   refreshToken = process.env.xpRefreshToken
   };
   Object.keys(CookieVal).forEach((item) => {
         if (CookieVal[item]) {
