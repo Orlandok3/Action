@@ -56,7 +56,7 @@ if (isGetCookie) {
    GetCookie();
    $.done()
 } 
-if ($.isNode()) {
+if ($.isNode()) {refreshToken
   if (process.env.xpCookie&& process.env.xpCookie.indexOf('#') > -1) {
    CookieVal = process.env.xpCookie.split('#');
    console.log(`您選擇的是用"#"隔開\n`)
@@ -67,9 +67,24 @@ if ($.isNode()) {
   } else {
    CookieVal = process.env.xpCookie.split()
   };
+  if (process.env.RrefreshToken&& process.env.RrefreshToken.indexOf('#') > -1) {
+   refreshToken = process.env.RrefreshToken.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.RrefreshToken && process.env.RrefreshToken.indexOf('\n') > -1) {
+   refreshToken = process.env.RrefreshToken.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   refreshToken = process.env.RrefreshToken.split()
+  };
   Object.keys(CookieVal).forEach((item) => {
         if (CookieVal[item]) {
           CookieArr.push(CookieVal[item])
+        }
+    });
+  Object.keys(refreshToken).forEach((item) => {
+        if (refreshToken[item]) {
+          refreshTokenArr.push(refreshToken[item])
         }
     });
     console.log(`============ 腳本執行-國際標準時間(UTC)：${new Date().toLocaleString()}  =============\n`)
