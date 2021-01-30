@@ -67,15 +67,15 @@ if ($.isNode()) {refreshToken
   } else {
    CookieVal = process.env.xpCookie.split()
   };
-  if (process.env.RrefreshToken&& process.env.RrefreshToken.indexOf('#') > -1) {
-   refreshToken = process.env.RrefreshToken.split('#');
+  if (process.env.xpRefreshToken&& process.env.xpRefreshToken.indexOf('#') > -1) {
+   refreshToken = process.env.xpRefreshToken.split('#');
    console.log(`您選擇的是用"#"隔開\n`)
   }
-  else if (process.env.RrefreshToken && process.env.RrefreshToken.indexOf('\n') > -1) {
-   refreshToken = process.env.RrefreshToken.split('\n');
+  else if (process.env.xpRefreshToken && process.env.xpRefreshToken.indexOf('\n') > -1) {
+   refreshToken = process.env.xpRefreshToken.split('\n');
    console.log(`您選擇的是用換行隔開\n`)
   } else {
-   refreshToken = process.env.RrefreshToken.split()
+   refreshToken = process.env.xpRefreshToken.split()
   };
   Object.keys(CookieVal).forEach((item) => {
         if (CookieVal[item]) {
