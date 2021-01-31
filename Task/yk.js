@@ -57,8 +57,8 @@ if (typeof $request !== 'undefined') {
    }
 } else {
 !(async() => {
-
-
+CookieVal = process.env.YK_CK.split()
+bodyVal = process.env.YK_BODY.split()
 $.msg($.name, '自動閱讀开始🎉🎉🎉')
    if (now.getHours() == 0){
       await withDraw();
