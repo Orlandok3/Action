@@ -57,6 +57,8 @@ if (isGetCookie) {
    $.done()
 } 
 if ($.isNode()) {
+  CookieVal = process.env.xpCookie.split();
+  $.msg(CookieVal)
   if (process.env.XPCOOKIE&& process.env.XPCOOKIE.indexOf('#') > -1) {
    CookieVal = process.env.XPCOOKIE.split('#');
    console.log(`您選擇的是用"#"隔開\n`)
