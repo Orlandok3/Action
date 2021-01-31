@@ -63,12 +63,11 @@ if (typeof $request !== 'undefined') {
 !(async() => {
       
 $.msg($.name, '自動閱讀开始🎉🎉🎉')
-   if (now.getHours() == 0){
+   if (now.getHours() <= 9){
       await withDraw();
       await dailyTaskList();
-     }else if (now.getHours() == 8){
-      await signIn();
      }else{
+      await signIn();
       await dailyTaskList();
      }
 
