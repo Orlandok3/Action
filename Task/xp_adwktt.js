@@ -177,6 +177,7 @@ if($request&&($request.url.indexOf("login_by_wx.json")>=0||$request.url.indexOf(
 function getToken() {
 return new Promise((resolve, reject) => {
   let timestamp=new Date().getTime();
+  $.msg(CookieVal,"獲取CookieVal成功")
   let url ={
       url: `https://veishop.iboxpay.com/nf_gateway/nf_user_auth_web/uc/ignore_tk/v1/refresh_access_token_to_c.json`,
       headers: JSON.parse(CookieVal.replace(/161\d{10}/,`${timestamp}`)),
