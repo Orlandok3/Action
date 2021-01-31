@@ -66,7 +66,7 @@ if ($.isNode()) {
    console.log(`您選擇的是用換行隔開\n`)
   } else {
    CookieVal = process.env.xpCookie.split();
-   console.log(CookieVal)
+   $.msg(CookieVal)
   };
   if (process.env.XPREFRESHTOKEN&& process.env.XPREFRESHTOKEN.indexOf('#') > -1) {
    refreshToken = process.env.XPREFRESHTOKEN.split('#');
@@ -77,7 +77,7 @@ if ($.isNode()) {
    console.log(`您選擇的是用換行隔開\n`)
   } else {
    refreshToken = process.env.XPREFRESHTOKEN
-   console.log(refreshToken)
+   $.msg(refreshToken)
   };
   Object.keys(CookieVal).forEach((item) => {
         if (CookieVal[item]) {
@@ -99,12 +99,15 @@ if (! CookieArr[0]) {
     return;
   }
    console.log(`------------- 共${CookieArr.length}個賬號----------------\n`)
+   
   for (let i = 0; i < CookieArr.length; i++) {
     if (CookieArr[i]) {
       message = ''
       CookieVal = CookieArr[i];
       $.index = i + 1;
       $.msg($.name+`${$.index}`, '自動閱讀開始🎉🎉🎉')
+      $.msg(CookieVal)
+      $.msg(refreshToken)
 
       await getToken()
       await activityList()
