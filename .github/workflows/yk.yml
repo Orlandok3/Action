@@ -12,7 +12,7 @@ env:
 jobs:
   build:
     env:
-      YK_CK: ${{ secrets.YK_CK }}
+      YK_CK2: ${{ secrets.YK_CK2 }}
       YK_BODY: ${{ secrets.YK_BODY }}
       
       
@@ -27,19 +27,18 @@ jobs:
         with:
           node-version: 12.x
       - name: npm install
-        if: env.YK_CK
         run: |
           cd ~/Scripts
           npm install -g npm
           npm update
           
       - name: '运行 【yk1】'
-        if: env.Bfurl         
+        if: env.YK_CK2         
         run: |
           cd ~/Scripts
           node Task/yk.js
         env:
-          YK_CK: ${{ secrets.YK_CK }}
+          YK_CK2: ${{ secrets.YK_CK2 }}
           YK_BODY: ${{ secrets.YK_BODY }}
                  
           
