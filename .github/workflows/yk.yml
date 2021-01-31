@@ -3,7 +3,7 @@ name: yk(一刻视频)
 on:
   workflow_dispatch:
   schedule:
-     - cron: '0 8,16 * * *'
+     - cron: '0 8-22/3 * * *'
   watch:
     types: started
 env:
