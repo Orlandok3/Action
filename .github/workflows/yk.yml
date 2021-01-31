@@ -38,7 +38,7 @@ jobs:
           cd ~/Scripts
           node Task/yk.js
         env:
-          YK_CK2: ${{ secrets.YK_CK2 }}
-          YK_BODY2: ${{ secrets.YK_BODY2 }}
+          YK_CK: ${{ secrets.YK_CK2 }}
+          YK_BODY: ${{ secrets.YK_BODY2 }}
                  
           
