@@ -40,6 +40,10 @@ let bodyVal = $.getdata('yk_body')
 now = new Date(new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000);  
 
 if ($.isNode()) {
+      
+      CookieVal = process.env.YK_CK.split()
+      bodyVal = process.env.YK_BODY.split()
+      
       console.log(`============ 脚本执行-国际标准时间(UTC)：${new Date().toLocaleString()}  =============\n`)
       console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`)
 }
@@ -57,8 +61,7 @@ if (typeof $request !== 'undefined') {
    }
 } else {
 !(async() => {
-CookieVal = process.env.YK_CK.split()
-bodyVal = process.env.YK_BODY.split()
+      
 $.msg($.name, '自動閱讀开始🎉🎉🎉')
    if (now.getHours() == 0){
       await withDraw();
