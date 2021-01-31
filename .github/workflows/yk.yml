@@ -13,7 +13,7 @@ jobs:
   build:
     env:
       YK_CK2: ${{ secrets.YK_CK2 }}
-      YK_BODY: ${{ secrets.YK_BODY }}
+      YK_BODY2: ${{ secrets.YK_BODY2 }}
       
       
     runs-on: ubuntu-latest
@@ -39,6 +39,6 @@ jobs:
           node Task/yk.js
         env:
           YK_CK2: ${{ secrets.YK_CK2 }}
-          YK_BODY: ${{ secrets.YK_BODY }}
+          YK_BODY2: ${{ secrets.YK_BODY2 }}
                  
           
