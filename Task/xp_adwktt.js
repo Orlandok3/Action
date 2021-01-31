@@ -57,29 +57,15 @@ if (isGetCookie) {
    $.done()
 } 
 if ($.isNode()) {
-  CookieVal = process.env.xpCookie.split();
-  $.msg(CookieVal)
-  if (process.env.XPCOOKIE&& process.env.XPCOOKIE.indexOf('#') > -1) {
-   CookieVal = process.env.XPCOOKIE.split('#');
+  if (process.env.xpCookie&& process.env.xpCookie.indexOf('#') > -1) {
+   CookieVal = process.env.xpCookie.split('#');
    console.log(`您選擇的是用"#"隔開\n`)
   }
-  else if (process.env.XPCOOKIE && process.env.XPCOOKIE.indexOf('\n') > -1) {
-   CookieVal = process.env.XPCOOKIE.split('\n');
+  else if (process.env.xpCookie && process.env.xpCookie.indexOf('\n') > -1) {
+   CookieVal = process.env.xpCookie.split('\n');
    console.log(`您選擇的是用換行隔開\n`)
   } else {
-   CookieVal = process.env.xpCookie.split();
-   $.msg(CookieVal)
-  };
-  if (process.env.XPREFRESHTOKEN&& process.env.XPREFRESHTOKEN.indexOf('#') > -1) {
-   refreshToken = process.env.XPREFRESHTOKEN.split('#');
-   console.log(`您選擇的是用"#"隔開\n`)
-  }
-  else if (process.env.XPREFRESHTOKEN && process.env.XPREFRESHTOKEN.indexOf('\n') > -1) {
-   refreshToken = process.env.XPREFRESHTOKEN.split('\n');
-   console.log(`您選擇的是用換行隔開\n`)
-  } else {
-   refreshToken = process.env.XPREFRESHTOKEN
-   $.msg(refreshToken)
+   CookieVal = process.env.xpCookie.split()
   };
   Object.keys(CookieVal).forEach((item) => {
         if (CookieVal[item]) {
@@ -101,15 +87,12 @@ if (! CookieArr[0]) {
     return;
   }
    console.log(`------------- 共${CookieArr.length}個賬號----------------\n`)
-   
   for (let i = 0; i < CookieArr.length; i++) {
     if (CookieArr[i]) {
       message = ''
       CookieVal = CookieArr[i];
       $.index = i + 1;
       $.msg($.name+`${$.index}`, '自動閱讀開始🎉🎉🎉')
-      $.msg(CookieVal)
-      $.msg(refreshToken)
 
       await getToken()
       await activityList()
@@ -184,7 +167,6 @@ if($request&&($request.url.indexOf("login_by_wx.json")>=0||$request.url.indexOf(
 function getToken() {
 return new Promise((resolve, reject) => {
   let timestamp=new Date().getTime();
-  $.msg(CookieVal,"獲取CookieVal成功")
   let url ={
       url: `https://veishop.iboxpay.com/nf_gateway/nf_user_auth_web/uc/ignore_tk/v1/refresh_access_token_to_c.json`,
       headers: JSON.parse(CookieVal.replace(/161\d{10}/,`${timestamp}`)),
