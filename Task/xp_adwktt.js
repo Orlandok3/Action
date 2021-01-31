@@ -56,27 +56,27 @@ if (isGetCookie) {
    GetCookie();
    $.done()
 } 
-if ($.isNode()) {refreshToken
-  if (process.env.xpCookie&& process.env.xpCookie.indexOf('#') > -1) {
-   CookieVal = process.env.xpCookie.split('#');
+if ($.isNode()) {
+  if (process.env.XPCOOKIE&& process.env.XPCOOKIE.indexOf('#') > -1) {
+   CookieVal = process.env.XPCOOKIE.split('#');
    console.log(`您選擇的是用"#"隔開\n`)
   }
-  else if (process.env.xpCookie && process.env.xpCookie.indexOf('\n') > -1) {
-   CookieVal = process.env.xpCookie.split('\n');
+  else if (process.env.XPCOOKIE && process.env.XPCOOKIE.indexOf('\n') > -1) {
+   CookieVal = process.env.XPCOOKIE.split('\n');
    console.log(`您選擇的是用換行隔開\n`)
   } else {
    CookieVal = process.env.xpCookie.split();
    console.log(CookieVal)
   };
-  if (process.env.xpRefreshToken&& process.env.xpRefreshToken.indexOf('#') > -1) {
-   refreshToken = process.env.xpRefreshToken.split('#');
+  if (process.env.XPREFRESHTOKEN&& process.env.XPREFRESHTOKEN.indexOf('#') > -1) {
+   refreshToken = process.env.XPREFRESHTOKEN.split('#');
    console.log(`您選擇的是用"#"隔開\n`)
   }
-  else if (process.env.xpRefreshToken && process.env.xpRefreshToken.indexOf('\n') > -1) {
-   refreshToken = process.env.xpRefreshToken.split('\n');
+  else if (process.env.XPREFRESHTOKEN && process.env.XPREFRESHTOKEN.indexOf('\n') > -1) {
+   refreshToken = process.env.XPREFRESHTOKEN.split('\n');
    console.log(`您選擇的是用換行隔開\n`)
   } else {
-   refreshToken = process.env.xpRefreshToken.split();
+   refreshToken = process.env.XPREFRESHTOKEN.split();
    console.log(refreshToken)
   };
   Object.keys(CookieVal).forEach((item) => {
