@@ -1,0 +1,45 @@
+name: yk(一刻视频)
+
+on:
+  workflow_dispatch:
+  schedule:
+     - cron: '0 8,16 * * *'
+  watch:
+    types: started
+env:
+  TZ: Asia/Shanghai
+
+jobs:
+  build:
+    env:
+      YK_CK: ${{ secrets.YK_CK }}
+      YK_BODY: ${{ secrets.YK_BODY }}
+      
+      
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        run: |
+          git clone https://github.com/adw2s/Action.git ~/Scripts
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: npm install
+        if: env.YK_CK
+        run: |
+          cd ~/Scripts
+          npm install -g npm
+          npm update
+          
+      - name: '运行 【yk1】'
+        if: env.Bfurl         
+        run: |
+          cd ~/Scripts
+          node Task/yk.js
+        env:
+          YK_CK: ${{ secrets.YK_CK }}
+          YK_BODY: ${{ secrets.YK_BODY }}
+                 
+          
