@@ -76,7 +76,7 @@ if ($.isNode()) {
    refreshToken = process.env.XPREFRESHTOKEN.split('\n');
    console.log(`您選擇的是用換行隔開\n`)
   } else {
-   refreshToken = process.env.XPREFRESHTOKEN.split();
+   refreshToken = process.env.XPREFRESHTOKEN
    console.log(refreshToken)
   };
   Object.keys(CookieVal).forEach((item) => {
