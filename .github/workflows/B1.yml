@@ -10,8 +10,8 @@ on:
      - cron: '0 7-23/2 * * *'
   watch:
     types: started
-env:
-  TZ: Asia/Shanghai
+#env:
+  #TZ: Asia/Shanghai
 
 jobs:
   build:
