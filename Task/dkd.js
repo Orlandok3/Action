@@ -56,7 +56,7 @@ let dkdtxbody = $.getdata('dkdtxbody')
     await dkdck()
     await dkdtxck()
   } else {
-    dkdurl = process.env.Dkdhd.split()
+    dkdurl = process.env.Dkdurl.split()
     dkdhd = process.env.Dkdhd.split()
     dkdbody = process.env.Dkdbody.split()
     dkdtxurl = process.env.Dkdtxurl.split()
