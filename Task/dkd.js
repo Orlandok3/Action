@@ -40,6 +40,13 @@ TG电报群: https://t.me/hahaha8028
 #获取多看点提现Cookie
 ^http:\/\/dkd-api\.dysdk\.com\/money\/withdraw_do? url script-request-body https://raw.githubusercontent.com/age174/-/main/dkd.js
 
+[rewrite_local]
+#获取多看点Cookie
+^http:\/\/dkd-api\.dysdk\.com\/user\/index url script-request-body https://raw.githubusercontent.com/adw2s/Action/main/Task/dkd.js
+
+#获取多看点提现Cookie
+^http:\/\/dkd-api\.dysdk\.com\/money\/withdraw_do? url script-request-body https://raw.githubusercontent.com/adw2s/Action/main/Task/dkd.js
+
 #loon
 ^http:\/\/dkd-api\.dysdk\.com\/user\/index script-path=https://raw.githubusercontent.com/age174/-/main/dkd.js, requires-body=true, timeout=10, tag=多看点任务cookie
 
@@ -193,8 +200,8 @@ function dkdck() {
 $.log(dkdhd)
     $.setdata($request.body,'dkdbody')
 $.log(dkdbody)
-   $.msg($.name,"","多看点headers获取成功！")
-   $.msg($.name,"","多看点body获取成功！")
+   $.msg($.name,"","多看点headers获取成功！",dkdhd)
+   $.msg($.name,"","多看点body获取成功！",dkdbody)
     }
   }
 //多看点提现ck
@@ -206,7 +213,9 @@ function dkdtxck() {
 $.log(dkdtxhd)
     $.setdata($request.body,'dkdtxbody')
 $.log(dkdtxbody)
-   $.msg($.name,"","多看点提现数据获取成功！")
+   $.msg($.name,"","多看点提现dkdtxurl数据获取成功！",dkdtxurl)
+   $.msg($.name,"","多看点提现dkdtxhd数据获取成功！",dkdtxhd)
+   $.msg($.name,"","多看点提现dkdtxbody数据获取成功！",dkdtxbody)
 
     }
   }
