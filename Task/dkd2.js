@@ -17,16 +17,6 @@ TG电报群: https://t.me/hahaha8028
 2021.02.01 加入自动提现功能
 获取方式，进入提现页面，选择需要自动提现的面额点击提现获取
 
-
-    dkdurl = process.env.Dkdurl.split()
-    dkdhd = process.env.Dkdhd.split()
-    dkdbody = process.env.Dkdbody.split()
-    dkdtxurl = process.env.Dkdtxurl.split()
-    dkdtxhd = process.env.Dkdtxhd.split()
-    dkdtxbody = process.env.Dkdtxbody.split()
-
-
-
 多看点自动任务
 圈X配置如下，其他软件自行测试
 [task_local]
@@ -61,123 +51,19 @@ let dkdbody = $.getdata('dkdbody')
 let dkdtxurl = $.getdata('dkdtxurl')
 let dkdtxhd = $.getdata('dkdtxhd')
 let dkdtxbody = $.getdata('dkdtxbody')
-
-
-const dkdurlArr = []
-const dkdhdArr = []
-const dkdbodyArr = []
-const dkdtxurlArr = []
-const dkdtxhdArr = []
-const dkdtxbodyArr = []
-
 !(async () => {
   if (typeof $request !== "undefined") {
     await dkdck()
     await dkdtxck()
   } else {
-    if (process.env.Dkdurl&& process.env.Dkdurl.indexOf('#') > -1) {
-     dkdurl = process.env.Dkdurl.split('#');
-     console.log(`您選擇的是用"#"隔開\n`)
-    }
-    else if (process.env.Dkdurl && process.env.Dkdurl.indexOf('\n') > -1) {
-     dkdurl = process.env.Dkdurl.split('\n');
-     console.log(`您選擇的是用換行隔開\n`)
-    } else {
-     dkdurl = process.env.Dkdurl.split()
-    };
-    Object.keys(dkdurl).forEach((item) => {
-          if (dkdurl[item]) {
-            dkdurlArr.push(dkdurl[item])
-          }
-      });
-    if (process.env.Dkdhd&& process.env.Dkdhd.indexOf('#') > -1) {
-     dkdhd = process.env.Dkdhd.split('#');
-     console.log(`您選擇的是用"#"隔開\n`)
-    }
-    else if (process.env.Dkdhd && process.env.Dkdhd.indexOf('\n') > -1) {
-     dkdhd = process.env.Dkdhd.split('\n');
-     console.log(`您選擇的是用換行隔開\n`)
-    } else {
-     dkdhd = process.env.Dkdhd.split()
-    };
-    Object.keys(dkdhd).forEach((item) => {
-          if (dkdhd[item]) {
-            dkdhdArr.push(dkdhd[item])
-          }
-      });
-    if (process.env.Dkdbody&& process.env.Dkdbody.indexOf('#') > -1) {
-     dkdbody = process.env.Dkdbody.split('#');
-     console.log(`您選擇的是用"#"隔開\n`)
-    }
-    else if (process.env.Dkdbody && process.env.Dkdbody.indexOf('\n') > -1) {
-     dkdbody = process.env.Dkdbody.split('\n');
-     console.log(`您選擇的是用換行隔開\n`)
-    } else {
-     dkdbody = process.env.Dkdbody.split()
-    };
-    Object.keys(dkdbody).forEach((item) => {
-          if (dkdbody[item]) {
-            dkdbodyArr.push(dkdbody[item])
-          }
-      });
-    if (process.env.Dkdtxurl&& process.env.Dkdtxurl.indexOf('#') > -1) {
-     dkdtxurl = process.env.Dkdtxurl.split('#');
-     console.log(`您選擇的是用"#"隔開\n`)
-    }
-    else if (process.env.Dkdtxurl && process.env.Dkdtxurl.indexOf('\n') > -1) {
-     dkdtxurl = process.env.Dkdtxurl.split('\n');
-     console.log(`您選擇的是用換行隔開\n`)
-    } else {
-     dkdtxurl = process.env.Dkdtxurl.split()
-    };
-    Object.keys(dkdtxurl).forEach((item) => {
-          if (dkdtxurl[item]) {
-            dkdtxurlArr.push(dkdtxurl[item])
-          }
-      });
-    if (process.env.Dkdtxhd&& process.env.Dkdtxhd.indexOf('#') > -1) {
-     dkdtxhd = process.env.Dkdtxhd.split('#');
-     console.log(`您選擇的是用"#"隔開\n`)
-    }
-    else if (process.env.Dkdtxhd && process.env.Dkdtxhd.indexOf('\n') > -1) {
-     dkdtxhd = process.env.Dkdtxhd.split('\n');
-     console.log(`您選擇的是用換行隔開\n`)
-    } else {
-     dkdtxhd = process.env.Dkdtxhd.split()
-    };
-    Object.keys(dkdtxhd).forEach((item) => {
-          if (dkdtxhd[item]) {
-            dkdtxhdArr.push(dkdtxhd[item])
-          }
-      });
-    if (process.env.Dkdtxbody&& process.env.Dkdtxbody.indexOf('#') > -1) {
-     dkdtxbody = process.env.Dkdtxbody.split('#');
-     console.log(`您選擇的是用"#"隔開\n`)
-    }
-    else if (process.env.Dkdtxbody && process.env.Dkdtxbody.indexOf('\n') > -1) {
-     dkdtxbody = process.env.Dkdtxbody.split('\n');
-     console.log(`您選擇的是用換行隔開\n`)
-    } else {
-     dkdtxbody = process.env.Dkdtxbody.split()
-    };
-    Object.keys(dkdtxbody).forEach((item) => {
-          if (dkdtxbody[item]) {
-            dkdtxbodyArr.push(dkdtxbody[item])
-          }
-      });
+    dkdurl = process.env.Dkdurl.split()
+    dkdhd = process.env.Dkdhd.split()
+    dkdbody = process.env.Dkdbody.split()
+    dkdtxurl = process.env.Dkdtxurl.split()
+    dkdtxhd = process.env.Dkdtxhd.split()
+    dkdtxbody = process.env.Dkdtxbody.split()
+    await dkdqd()
 
-
-
-    for (let i = 0; i < dkdurlArr.length; i++) {
-      if (dkdurlArr[i]) {
-        message = ''
-        dkdurl = dkdurlArr[i];
-        dkdhd = dkdhdArr[i];
-        dkdbody = dkdbodyArr[i];
-        dkdtxurl = dkdtxurlArr[i];
-        dkdtxhd = dkdtxhdArr[i];
-        dkdtxbody = dkdtxbodyArr[i];
-        await dkdqd()
   }
 })()
   .catch((e) => $.logErr(e))
