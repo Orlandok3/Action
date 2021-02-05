@@ -50,7 +50,7 @@ jobs:
         if: env.Dkdurl         
         run: |
           cd ~/Scripts
-          node Task/dkd.js
+          node Task/dkdsp.js
         env:
           Dkdurl: ${{ secrets.Dkdurl }}
           Dkdhd: ${{ secrets.Dkdhd }}
