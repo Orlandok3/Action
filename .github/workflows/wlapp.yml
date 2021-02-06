@@ -15,12 +15,24 @@ on:
 jobs:
   build:
     env:
-      GetdomainkeyVal: ${{ secrets.GetdomainkeyVal }}
-      Dkdhd: ${{ secrets.Dkdhd }}
-      Dkdbody: ${{ secrets.Dkdbody }}
-      Dkdtxurl: ${{ secrets.Dkdtxurl }}
-      Dkdtxhd: ${{ secrets.Dkdtxhd }}
-      Dkdtxbody: ${{ secrets.Dkdtxbody }}
+      GetdomainkeyVal: ${{ secrets.WLGetdomainkeyVal }}
+      Getdomainkey: ${{ secrets.WLGetdomainkey }}
+      Userloginbody: ${{ secrets.WLUserloginbody }}
+      Userloginkey: ${{ secrets.WLUserloginkey }}
+      Artlistbody: ${{ secrets.WLArtlistbody }}
+      Artlistkey: ${{ secrets.WLArtlistkey }}
+      Artstationurl: ${{ secrets.WLArtstationurl }}
+      Artstationkey: ${{ secrets.WLArtstationkey }}
+      Readaccountbody: ${{ secrets.WLReadaccountbody }}
+      Readaccountkey: ${{ secrets.WLReadaccountkey }}
+      Infomebody: ${{ secrets.WLInfomebody }}
+      Infomekey: ${{ secrets.WLInfomekey }}
+      Videoartlistbody: ${{ secrets.WLVideoartlistbody }}
+      Videoartlistkey: ${{ secrets.WLVideoartlistkey }}
+      Videoreadaccountbody: ${{ secrets.WLVideoreadaccountbody }}
+      Videoreadaccountkey: ${{ secrets.WLVideoreadaccountkey }}
+      Artdetailbody: ${{ secrets.WLArtdetailbody }}
+      Artdetailkey: ${{ secrets.WLArtdetailkey }}
       PUSH_KEY: ${{ secrets.PUSH_KEY }}
       BARK_PUSH: ${{ secrets.BARK_PUSH }}
       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
@@ -47,17 +59,29 @@ jobs:
           npm update
                  
       - name: '运行 【wlapp】'
-        if: env.GetdomainkeyVal         
+        if: env.WLGetdomainkeyVal         
         run: |
           cd ~/Scripts
           node Task/wlapp.js
         env:
-          GetdomainkeyVal: ${{ secrets.GetdomainkeyVal }}
-          Dkdhd: ${{ secrets.Dkdhd }}
-          Dkdbody: ${{ secrets.Dkdbody }}
-          Dkdtxurl: ${{ secrets.Dkdtxurl }}
-          Dkdtxhd: ${{ secrets.Dkdtxhd }}
-          Dkdtxbody: ${{ secrets.Dkdtxbody }}
+          GetdomainkeyVal: ${{ secrets.WLGetdomainkeyVal }}
+          Getdomainkey: ${{ secrets.WLGetdomainkey }}
+          Userloginbody: ${{ secrets.WLUserloginbody }}
+          Userloginkey: ${{ secrets.WLUserloginkey }}
+          Artlistbody: ${{ secrets.WLArtlistbody }}
+          Artlistkey: ${{ secrets.WLArtlistkey }}
+          Artstationurl: ${{ secrets.WLArtstationurl }}
+          Artstationkey: ${{ secrets.WLArtstationkey }}
+          Readaccountbody: ${{ secrets.WLReadaccountbody }}
+          Readaccountkey: ${{ secrets.WLReadaccountkey }}
+          Infomebody: ${{ secrets.WLInfomebody }}
+          Infomekey: ${{ secrets.WLInfomekey }}
+          Videoartlistbody: ${{ secrets.WLVideoartlistbody }}
+          Videoartlistkey: ${{ secrets.WLVideoartlistkey }}
+          Videoreadaccountbody: ${{ secrets.WLVideoreadaccountbody }}
+          Videoreadaccountkey: ${{ secrets.WLVideoreadaccountkey }}
+          Artdetailbody: ${{ secrets.WLArtdetailbody }}
+          Artdetailkey: ${{ secrets.WLArtdetailkey }}
           
 
 
