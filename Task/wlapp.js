@@ -116,25 +116,25 @@ let artdetailkeyVal = "";
 
 if ($.isNode()) {
 
-  if (process.env.GetdomainbodyVal&& process.env.GetdomainbodyVal.indexOf('#') > -1) {
-   getdomainbodyVal = process.env.GetdomainbodyVal.split('#');
+  if (process.env.Getdomainbody&& process.env.Getdomainbody.indexOf('#') > -1) {
+   getdomainbodyVal = process.env.Getdomainbody.split('#');
    console.log(`您選擇的是用"#"隔開\n`)
   }
-  else if (process.env.GetdomainbodyVal && process.env.GetdomainbodyVal.indexOf('\n') > -1) {
-   getdomainbodyVal = process.env.GetdomainbodyVal.split('\n');
+  else if (process.env.Getdomainbody && process.env.Getdomainbody.indexOf('\n') > -1) {
+   getdomainbodyVal = process.env.Getdomainbody.split('\n');
    console.log(`您選擇的是用換行隔開\n`)
   } else {
-   getdomainbodyVal = process.env.GetdomainbodyVal.split()
+   getdomainbodyVal = process.env.Getdomainbody.split()
   };
-  if (process.env.GetdomainkeyVal&& process.env.GetdomainkeyVal.indexOf('#') > -1) {
-   getdomainkeyVal = process.env.GetdomainkeyVal.split('#');
+  if (process.env.Getdomainkey&& process.env.Getdomainkey.indexOf('#') > -1) {
+   getdomainkeyVal = process.env.Getdomainkey.split('#');
    console.log(`您選擇的是用"#"隔開\n`)
   }
-  else if (process.env.GetdomainkeyVal && process.env.GetdomainkeyVal.indexOf('\n') > -1) {
-   getdomainkeyVal = process.env.GetdomainkeyVal.split('\n');
+  else if (process.env.Getdomainkey && process.env.Getdomainkey.indexOf('\n') > -1) {
+   getdomainkeyVal = process.env.Getdomainkey.split('\n');
    console.log(`您選擇的是用換行隔開\n`)
   } else {
-   getdomainkeyVal = process.env.GetdomainkeyVal.split()
+   getdomainkeyVal = process.env.Getdomainkey.split()
   };
   if (process.env.Userloginbody&& process.env.Userloginbody.indexOf('#') > -1) {
    userloginbodyVal = process.env.Userloginbody.split('#');
@@ -146,8 +146,8 @@ if ($.isNode()) {
   } else {
    userloginbodyVal = process.env.Userloginbody.split()
   };
-  if (process.env.UserloginkeyVal&& process.env.UserloginkeyVal.indexOf('#') > -1) {
-   userloginkeyVal = process.env.UserloginkeyVal.split('#');
+  if (process.env.Userloginkey&& process.env.Userloginkey.indexOf('#') > -1) {
+   userloginkeyVal = process.env.Userloginkey.split('#');
    console.log(`您選擇的是用"#"隔開\n`)
   }
   else if (process.env.Userloginkey && process.env.Userloginkey.indexOf('\n') > -1) {
