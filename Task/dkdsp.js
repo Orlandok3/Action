@@ -102,30 +102,28 @@ if (!(bodys && bodys != '')) {
   $.done()
 }
 
-YouthBody = bodys.split('&');
-
-Object.keys(YouthBody).forEach((item) => {
-  if (YouthBody[item]) {
-    ReadArr.push(YouthBody[item])
-  }
-})
-let indexLast = $.getdata('dkdvd_body_index');
-$.begin = indexLast ? parseInt(indexLast,10) : 1;
-
 !(async () => {
-  if (!ReadArr[0]) {
+  if (!bodys) {
     console.log($.name, '【提示】请把抓包的请求体填入Github 的 Secrets 中，请以&隔开')
     return;
-  if(ReadArr.length < 5){
-$.msg("", "", '请先刷视频获取至少五个body再运行！')
-$.done()
 }
-}
+
   for (let i = 0; i < bodysArr.length; i++) {
     if (dkdurlArr[i]) {
       bodys = bodysArr[i];
       dkdhd = dkdhdArr[i];
       dkdbody = dkdbodyArr[i];
+
+      YouthBody = bodys.split('&');
+      Object.keys(YouthBody).forEach((item) => {
+        if (YouthBody[item]) {
+          ReadArr.push(YouthBody[item])
+        }
+      })
+      let indexLast = $.getdata('dkdvd_body_index');
+      $.begin = indexLast ? parseInt(indexLast,10) : 1;
+
+
       console.log(i)
       console.log(`多body数：${ReadArr.length}个\n上次执行到第${$.begin}个\n预计执行${((ReadArr.length - $.begin) / 120).toFixed(2)}个小时🍺`)
       $.index = 0;
