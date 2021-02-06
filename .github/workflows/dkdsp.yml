@@ -15,12 +15,9 @@ on:
 jobs:
   build:
     env:
-      Dkdurl: ${{ secrets.Dkdurl }}
       Dkdhd: ${{ secrets.Dkdhd }}
       Dkdbody: ${{ secrets.Dkdbody }}
-      Dkdtxurl: ${{ secrets.Dkdtxurl }}
-      Dkdtxhd: ${{ secrets.Dkdtxhd }}
-      Dkdtxbody: ${{ secrets.Dkdtxbody }}
+      Dkdvd_body: ${{ secrets.Dkdvd_body }}
       PUSH_KEY: ${{ secrets.PUSH_KEY }}
       BARK_PUSH: ${{ secrets.BARK_PUSH }}
       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
@@ -47,17 +44,14 @@ jobs:
           npm update
                  
       - name: '运行 【dkd视频】'
-        if: env.Dkdurl         
+        if: env.Dkdvd_body         
         run: |
           cd ~/Scripts
           node Task/dkdsp.js
         env:
-          Dkdurl: ${{ secrets.Dkdurl }}
           Dkdhd: ${{ secrets.Dkdhd }}
           Dkdbody: ${{ secrets.Dkdbody }}
-          Dkdtxurl: ${{ secrets.Dkdtxurl }}
-          Dkdtxhd: ${{ secrets.Dkdtxhd }}
-          Dkdtxbody: ${{ secrets.Dkdtxbody }}
+          Dkdvd_body: ${{ secrets.Dkdvd_body }}
           
 
 
