@@ -44,7 +44,7 @@ jobs:
           npm update
                  
       - name: '运行 【dkd视频】'
-        if: env.Dkdurl         
+        if: env.Dkdvd_body         
         run: |
           cd ~/Scripts
           node Task/dkdsp.js
