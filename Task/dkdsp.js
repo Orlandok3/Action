@@ -46,6 +46,57 @@ let dkdbody = $.getdata('dkdbody')
 let dkdhd = $.getdata('dkdhd')
 let ReadArr = [], YouthBody = "", readscore = 0;
 let bodys = $.getdata("dkdvd_body");
+
+const dkdhdArr = []
+const dkdbodyArr = []
+const bodysArr = []
+
+if (process.env.Dkdhd&& process.env.Dkdhd.indexOf('#') > -1) {
+ dkdhd = process.env.Dkdhd.split('#');
+ console.log(`您選擇的是用"#"隔開\n`)
+}
+else if (process.env.Dkdhd && process.env.Dkdhd.indexOf('\n') > -1) {
+ dkdhd = process.env.Dkdhd.split('\n');
+ console.log(`您選擇的是用換行隔開\n`)
+} else {
+ dkdhd = process.env.Dkdhd.split()
+};
+Object.keys(dkdhd).forEach((item) => {
+      if (dkdhd[item]) {
+        dkdhdArr.push(dkdhd[item])
+      }
+  });
+if (process.env.Dkdbody&& process.env.Dkdbody.indexOf('#') > -1) {
+ dkdbody = process.env.Dkdbody.split('#');
+ console.log(`您選擇的是用"#"隔開\n`)
+}
+else if (process.env.Dkdbody && process.env.Dkdbody.indexOf('\n') > -1) {
+ dkdbody = process.env.Dkdbody.split('\n');
+ console.log(`您選擇的是用換行隔開\n`)
+} else {
+ dkdbody = process.env.Dkdbody.split()
+};
+Object.keys(dkdbody).forEach((item) => {
+      if (dkdbody[item]) {
+        dkdbodyArr.push(dkdbody[item])
+      }
+  });
+if (process.env.Dkdvd_body&& process.env.Dkdvd_body.indexOf('#') > -1) {
+ bodys = process.env.Dkdvd_body.split('#');
+ console.log(`bodys您選擇的是用"#"隔開\n`)
+}
+else if (process.env.Dkdvd_body && process.env.Dkdvd_body.indexOf('\n') > -1) {
+ bodys = process.env.Dkdvd_body.split('\n');
+ console.log(`bodys您選擇的是用換行隔開\n`)
+} else {
+ bodys = process.env.Dkdvd_body.split()
+};
+Object.keys(bodys).forEach((item) => {
+      if (bodys[item]) {
+        bodysArr.push(bodys[item])
+      }
+  });
+
 if (!(bodys && bodys != '')) {
   $.msg("", "", '请先刷视频获取多body获取越多，脚本可获得金币越多')
   $.done()
@@ -68,20 +119,29 @@ $.begin = indexLast ? parseInt(indexLast,10) : 1;
   if(ReadArr.length < 5){
 $.msg("", "", '请先刷视频获取至少五个body再运行！')
 $.done()
-} 
-} 
-  console.log(`多body数：${ReadArr.length}个\n上次执行到第${$.begin}个\n预计执行${((ReadArr.length - $.begin) / 120).toFixed(2)}个小时🍺`)
-  $.index = 0;
-  for (let i = indexLast ? indexLast : 0; i < ReadArr.length; i++) {
-    if (ReadArr[i]) {
-      articlebody = ReadArr[i];
-      $.index = $.index + 1;
-      console.log(`\n开始多看点第${$.index}次视频💦`)
+}
+}
+  for (let i = 0; i < bodysArr.length; i++) {
+    if (dkdurlArr[i]) {
+      bodys = bodysArr[i];
+      dkdhd = dkdhdArr[i];
+      dkdbody = dkdbodyArr[i];
+      console.log(i)
+      console.log(`多body数：${ReadArr.length}个\n上次执行到第${$.begin}个\n预计执行${((ReadArr.length - $.begin) / 120).toFixed(2)}个小时🍺`)
+      $.index = 0;
+      for (let i = indexLast ? indexLast : 0; i < ReadArr.length; i++) {
+        if (ReadArr[i]) {
+          articlebody = ReadArr[i];
+          $.index = $.index + 1;
+          console.log(`\n开始多看点第${$.index}次视频💦`)
+        }
+        await AutoRead();
+      }
     }
-    await AutoRead();
   }
+
   //console.log(`\n多看点共完成${$.index}次视频\n共计获得${readscore}个金币，视频请求全部结束🎁`+'\n准备执行开视频红包……🧧')
-  
+
 //await dkdhbsp()
  $.msg($.name+'运行完毕！', "", `多看点共完成${$.index}次视频\n共计获得${readscore}个金币，视频请求全部结束🎁`)
 })()
@@ -110,17 +170,17 @@ function AutoRead() {
         console.log(`\n本次视频获得${readres.data.award}个金币，即将开始下次视频👏🏻\n`)
         readscore += readres.data.award;
         await $.wait(30000);
-      
+
       }
          if (readres.message == '请先领取大额红包再来！') {
-        console.log(`\n检测到红包，，即将开始领取👏🏻\n`)     
+        console.log(`\n检测到红包，，即将开始领取👏🏻\n`)
 await dkdhbsp();
-      
+
       }
 
       else if (readres.status_code == 10020) {
         console.log(`第${$.index}次视频请求失败,回执🚫: `+readres.message+'等待30秒执行下次视频')
-   
+
 await $.wait(30000);
       }
 
@@ -129,7 +189,7 @@ await $.wait(30000);
 
   })
 }
-//多看点红包视频     
+//多看点红包视频
 function dkdhbsp(timeout = 0) {
   return new Promise((resolve) => {
 let url = {
