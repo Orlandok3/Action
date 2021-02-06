@@ -51,65 +51,67 @@ const dkdhdArr = []
 const dkdbodyArr = []
 const bodysArr = []
 
-if (process.env.Dkdhd&& process.env.Dkdhd.indexOf('#') > -1) {
- dkdhd = process.env.Dkdhd.split('#');
- console.log(`您選擇的是用"#"隔開\n`)
-}
-else if (process.env.Dkdhd && process.env.Dkdhd.indexOf('\n') > -1) {
- dkdhd = process.env.Dkdhd.split('\n');
- console.log(`您選擇的是用換行隔開\n`)
-} else {
- dkdhd = process.env.Dkdhd.split()
-};
-Object.keys(dkdhd).forEach((item) => {
-      if (dkdhd[item]) {
-        dkdhdArr.push(dkdhd[item])
-      }
-  });
-if (process.env.Dkdbody&& process.env.Dkdbody.indexOf('#') > -1) {
- dkdbody = process.env.Dkdbody.split('#');
- console.log(`您選擇的是用"#"隔開\n`)
-}
-else if (process.env.Dkdbody && process.env.Dkdbody.indexOf('\n') > -1) {
- dkdbody = process.env.Dkdbody.split('\n');
- console.log(`您選擇的是用換行隔開\n`)
-} else {
- dkdbody = process.env.Dkdbody.split()
-};
-Object.keys(dkdbody).forEach((item) => {
-      if (dkdbody[item]) {
-        dkdbodyArr.push(dkdbody[item])
-      }
-  });
-if (process.env.Dkdvd_body&& process.env.Dkdvd_body.indexOf('#') > -1) {
- bodys = process.env.Dkdvd_body.split('#');
- console.log(`bodys您選擇的是用"#"隔開\n`)
-}
-else if (process.env.Dkdvd_body && process.env.Dkdvd_body.indexOf('\n') > -1) {
- bodys = process.env.Dkdvd_body.split('\n');
- console.log(`bodys您選擇的是用換行隔開\n`)
-} else {
- bodys = process.env.Dkdvd_body.split()
-};
-Object.keys(bodys).forEach((item) => {
-      if (bodys[item]) {
-        bodysArr.push(bodys[item])
-      }
-  });
 
-if (!(bodys && bodys != '')) {
-  $.msg("", "", '请先刷视频获取多body获取越多，脚本可获得金币越多')
-  $.done()
-}
 
 !(async () => {
+  if (process.env.Dkdhd&& process.env.Dkdhd.indexOf('#') > -1) {
+   dkdhd = process.env.Dkdhd.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.Dkdhd && process.env.Dkdhd.indexOf('\n') > -1) {
+   dkdhd = process.env.Dkdhd.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   dkdhd = process.env.Dkdhd.split()
+  };
+  Object.keys(dkdhd).forEach((item) => {
+        if (dkdhd[item]) {
+          dkdhdArr.push(dkdhd[item])
+        }
+    });
+  if (process.env.Dkdbody&& process.env.Dkdbody.indexOf('#') > -1) {
+   dkdbody = process.env.Dkdbody.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.Dkdbody && process.env.Dkdbody.indexOf('\n') > -1) {
+   dkdbody = process.env.Dkdbody.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   dkdbody = process.env.Dkdbody.split()
+  };
+  Object.keys(dkdbody).forEach((item) => {
+        if (dkdbody[item]) {
+          dkdbodyArr.push(dkdbody[item])
+        }
+    });
+  if (process.env.Dkdvd_body&& process.env.Dkdvd_body.indexOf('#') > -1) {
+   bodys = process.env.Dkdvd_body.split('#');
+   console.log(`bodys您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.Dkdvd_body && process.env.Dkdvd_body.indexOf('\n') > -1) {
+   bodys = process.env.Dkdvd_body.split('\n');
+   console.log(`bodys您選擇的是用換行隔開\n`)
+  } else {
+   bodys = process.env.Dkdvd_body.split()
+  };
+  Object.keys(bodys).forEach((item) => {
+        if (bodys[item]) {
+          bodysArr.push(bodys[item])
+        }
+    });
+
+  if (!(bodys && bodys != '')) {
+    $.msg("", "", '请先刷视频获取多body获取越多，脚本可获得金币越多')
+    $.done()
+  }
+
   if (!bodys) {
     console.log($.name, '【提示】请把抓包的请求体填入Github 的 Secrets 中，请以&隔开')
     return;
 }
 
   for (let i = 0; i < bodysArr.length; i++) {
-    if (dkdurlArr[i]) {
+    if (bodysArr[i]) {
       bodys = bodysArr[i];
       dkdhd = dkdhdArr[i];
       dkdbody = dkdbodyArr[i];
