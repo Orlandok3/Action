@@ -15,7 +15,7 @@ on:
 jobs:
   build:
     env:
-      GetdomainbodyVal: ${{ secrets.WLGETDOMAINBODY }}
+      Getdomainbody: ${{ secrets.WLGETDOMAINBODY }}
       Getdomainkey: ${{ secrets.WLGETDOMAINKEY }}
       Userloginbody: ${{ secrets.WLUSERLOGINBODY }}
       Userloginkey: ${{ secrets.WLUSERLOGINKEY }}
