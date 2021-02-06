@@ -58,8 +58,7 @@ jobs:
           npm install -g npm
           npm update
                  
-      - name: '运行 【wlapp】'
-        if: env.GetdomainkeyVal         
+      - name: '运行 【wlapp】'  
         run: |
           cd ~/Scripts
           node Task/wlapp.js
