@@ -122,7 +122,7 @@ const bodysArr = []
           ReadArr.push(YouthBody[item])
         }
       })
-      let indexLast = $.getdata('dkdvd_body_index');
+      let indexLast = $.getdata('dkdvd_body_index' || '1') ;
       $.begin = indexLast ? parseInt(indexLast,10) : 1;
 
 
@@ -153,7 +153,7 @@ function AutoRead() {
   return new Promise((resolve, reject) => {
     let url = {
       url: `http://dkd-api.dysdk.com/android_video/getaward`,
-      headers:JSON.parse($.getdata('dkdhd')),
+      headers:JSON.parse(dkdhd),
       body: articlebody
     };
     $.post(url, async (error, response, data) => {
@@ -194,7 +194,7 @@ function dkdhbsp(timeout = 0) {
   return new Promise((resolve) => {
 let url = {
         url : 'http://dkd-api.dysdk.com/video/red_getaward',
-        headers : JSON.parse($.getdata('dkdhd')),
+        headers : JSON.parse(dkdhd),
         body : 'adType=2&' + dkdbody,}
       $.post(url, async (err, resp, data) => {
         try {
