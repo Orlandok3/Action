@@ -115,6 +115,189 @@ const artdetailkeyArr = [];
 let artdetailkeyVal = "";
 
 if ($.isNode()) {
+
+  if (process.env.GetdomainbodyVal&& process.env.GetdomainbodyVal.indexOf('#') > -1) {
+   getdomainbodyVal = process.env.GetdomainbodyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.GetdomainbodyVal && process.env.GetdomainbodyVal.indexOf('\n') > -1) {
+   getdomainbodyVal = process.env.GetdomainbodyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   getdomainbodyVal = process.env.GetdomainbodyVal.split()
+  };
+  if (process.env.GetdomainkeyVal&& process.env.GetdomainkeyVal.indexOf('#') > -1) {
+   getdomainkeyVal = process.env.GetdomainkeyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.GetdomainkeyVal && process.env.GetdomainkeyVal.indexOf('\n') > -1) {
+   getdomainkeyVal = process.env.GetdomainkeyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   getdomainkeyVal = process.env.GetdomainkeyVal.split()
+  };
+  if (process.env.UserloginbodyVal&& process.env.UserloginbodyVal.indexOf('#') > -1) {
+   userloginbodyVal = process.env.UserloginbodyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.UserloginbodyVal && process.env.UserloginbodyVal.indexOf('\n') > -1) {
+   userloginbodyVal = process.env.UserloginbodyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   userloginbodyVal = process.env.UserloginbodyVal.split()
+  };
+  if (process.env.UserloginkeyVal&& process.env.UserloginkeyVal.indexOf('#') > -1) {
+   userloginkeyVal = process.env.UserloginkeyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.UserloginkeyVal && process.env.UserloginkeyVal.indexOf('\n') > -1) {
+   userloginkeyVal = process.env.UserloginkeyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   userloginkeyVal = process.env.UserloginkeyVal.split()
+  };
+  if (process.env.ArtlistbodyVal&& process.env.ArtlistbodyVal.indexOf('#') > -1) {
+   artlistbodyVal = process.env.ArtlistbodyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.ArtlistbodyVal && process.env.ArtlistbodyVal.indexOf('\n') > -1) {
+   artlistbodyVal = process.env.ArtlistbodyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   artlistbodyVal = process.env.ArtlistbodyVal.split()
+  };
+  if (process.env.ArtlistkeyVal&& process.env.ArtlistkeyVal.indexOf('#') > -1) {
+   artlistkeyVal = process.env.ArtlistkeyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.ArtlistkeyVal && process.env.ArtlistkeyVal.indexOf('\n') > -1) {
+   artlistkeyVal = process.env.ArtlistkeyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   artlistkeyVal = process.env.ArtlistkeyVal.split()
+  };
+  if (process.env.ArtstationurlVal&& process.env.ArtstationurlVal.indexOf('#') > -1) {
+   artstationurlVal = process.env.ArtstationurlVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.ArtstationurlVal && process.env.ArtstationurlVal.indexOf('\n') > -1) {
+   artstationurlVal = process.env.ArtstationurlVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   artstationurlVal = process.env.ArtstationurlVal.split()
+  };
+  if (process.env.ArtstationkeyVal&& process.env.ArtstationkeyVal.indexOf('#') > -1) {
+   artstationkeyVal = process.env.ArtstationkeyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.ArtstationkeyVal && process.env.ArtstationkeyVal.indexOf('\n') > -1) {
+   artstationkeyVal = process.env.ArtstationkeyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   artstationkeyVal = process.env.ArtstationkeyVal.split()
+  };
+  if (process.env.ReadaccountbodyVal&& process.env.ReadaccountbodyVal.indexOf('#') > -1) {
+   readaccountbodyVal = process.env.ReadaccountbodyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.ReadaccountbodyVal && process.env.ReadaccountbodyVal.indexOf('\n') > -1) {
+   readaccountbodyVal = process.env.ReadaccountbodyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   readaccountbodyVal = process.env.ReadaccountbodyVal.split()
+  };
+  if (process.env.ReadaccountkeyVal&& process.env.ReadaccountkeyVal.indexOf('#') > -1) {
+   readaccountkeyVal = process.env.ReadaccountkeyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.ReadaccountkeyVal && process.env.ReadaccountkeyVal.indexOf('\n') > -1) {
+   readaccountkeyVal = process.env.ReadaccountkeyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   readaccountkeyVal = process.env.ReadaccountkeyVal.split()
+  };
+  if (process.env.InfomebodyVal&& process.env.InfomebodyVal.indexOf('#') > -1) {
+   infomebodyVal = process.env.InfomebodyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.InfomebodyVal && process.env.InfomebodyVal.indexOf('\n') > -1) {
+   infomebodyVal = process.env.InfomebodyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   infomebodyVal = process.env.InfomebodyVal.split()
+  };
+  if (process.env.InfomekeyVal&& process.env.InfomekeyVal.indexOf('#') > -1) {
+   infomekeyVal = process.env.InfomekeyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.InfomekeyVal && process.env.InfomekeyVal.indexOf('\n') > -1) {
+   infomekeyVal = process.env.InfomekeyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   infomekeyVal = process.env.InfomekeyVal.split()
+  };
+  if (process.env.VideoartlistbodyVal&& process.env.VideoartlistbodyVal.indexOf('#') > -1) {
+   videoartlistbodyVal = process.env.VideoartlistbodyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.VideoartlistbodyVal && process.env.VideoartlistbodyVal.indexOf('\n') > -1) {
+   videoartlistbodyVal = process.env.VideoartlistbodyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   videoartlistbodyVal = process.env.VideoartlistbodyVal.split()
+  };
+  if (process.env.VideoartlistkeyVal&& process.env.VideoartlistkeyVal.indexOf('#') > -1) {
+   videoartlistkeyVal = process.env.VideoartlistkeyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.VideoartlistkeyVal && process.env.VideoartlistkeyVal.indexOf('\n') > -1) {
+   videoartlistkeyVal = process.env.VideoartlistkeyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   videoartlistkeyVal = process.env.VideoartlistkeyVal.split()
+  };
+  if (process.env.VideoreadaccountbodyVal&& process.env.VideoreadaccountbodyVal.indexOf('#') > -1) {
+   videoreadaccountbodyVal = process.env.VideoreadaccountbodyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.VideoreadaccountbodyVal && process.env.VideoreadaccountbodyVal.indexOf('\n') > -1) {
+   videoreadaccountbodyVal = process.env.VideoreadaccountbodyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   videoreadaccountbodyVal = process.env.VideoreadaccountbodyVal.split()
+  };
+  if (process.env.VideoreadaccountkeyVal&& process.env.VideoreadaccountkeyVal.indexOf('#') > -1) {
+   videoreadaccountkeyVal = process.env.VideoreadaccountkeyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.VideoreadaccountkeyVal && process.env.VideoreadaccountkeyVal.indexOf('\n') > -1) {
+   videoreadaccountkeyVal = process.env.VideoreadaccountkeyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   videoreadaccountkeyVal = process.env.VideoreadaccountkeyVal.split()
+  };
+  if (process.env.ArtdetailbodyVal&& process.env.ArtdetailbodyVal.indexOf('#') > -1) {
+   artdetailbodyVal = process.env.ArtdetailbodyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.ArtdetailbodyVal && process.env.ArtdetailbodyVal.indexOf('\n') > -1) {
+   artdetailbodyVal = process.env.ArtdetailbodyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   artdetailbodyVal = process.env.ArtdetailbodyVal.split()
+  };
+  if (process.env.ArtdetailkeyVal&& process.env.ArtdetailkeyVal.indexOf('#') > -1) {
+   artdetailkeyVal = process.env.ArtdetailkeyVal.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.ArtdetailkeyVal && process.env.ArtdetailkeyVal.indexOf('\n') > -1) {
+   artdetailkeyVal = process.env.ArtdetailkeyVal.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   artdetailkeyVal = process.env.ArtdetailkeyVal.split()
+  };
+
+
   Object.keys(getdomainbodyVal).forEach((item) => {
     if (getdomainbodyVal[item]) {
       getdomainbodyArr.push(getdomainbodyVal[item])
