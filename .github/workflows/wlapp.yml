@@ -15,24 +15,24 @@ on:
 jobs:
   build:
     env:
-      GetdomainkeyVal: ${{ secrets.WLGetdomainkeyVal }}
-      Getdomainkey: ${{ secrets.WLGetdomainkey }}
-      Userloginbody: ${{ secrets.WLUserloginbody }}
-      Userloginkey: ${{ secrets.WLUserloginkey }}
-      Artlistbody: ${{ secrets.WLArtlistbody }}
-      Artlistkey: ${{ secrets.WLArtlistkey }}
-      Artstationurl: ${{ secrets.WLArtstationurl }}
-      Artstationkey: ${{ secrets.WLArtstationkey }}
-      Readaccountbody: ${{ secrets.WLReadaccountbody }}
-      Readaccountkey: ${{ secrets.WLReadaccountkey }}
-      Infomebody: ${{ secrets.WLInfomebody }}
-      Infomekey: ${{ secrets.WLInfomekey }}
-      Videoartlistbody: ${{ secrets.WLVideoartlistbody }}
-      Videoartlistkey: ${{ secrets.WLVideoartlistkey }}
-      Videoreadaccountbody: ${{ secrets.WLVideoreadaccountbody }}
-      Videoreadaccountkey: ${{ secrets.WLVideoreadaccountkey }}
-      Artdetailbody: ${{ secrets.WLArtdetailbody }}
-      Artdetailkey: ${{ secrets.WLArtdetailkey }}
+      GetdomainkeyVal: ${{ secrets.WLGETDOMAINKEYVAL }}
+      Getdomainkey: ${{ secrets.WLGETDOMAINKEY }}
+      Userloginbody: ${{ secrets.WLUSERLOGINBODY }}
+      Userloginkey: ${{ secrets.WLUSERLOGINKEY }}
+      Artlistbody: ${{ secrets.WLARTLISTBODY }}
+      Artlistkey: ${{ secrets.WLARTLISTKEY }}
+      Artstationurl: ${{ secrets.WLARTSTATIONURL }}
+      Artstationkey: ${{ secrets.WLARTSTATIONKEY }}
+      Readaccountbody: ${{ secrets.WLREADACCOUNTBODY }}
+      Readaccountkey: ${{ secrets.WLREADACCOUNTKEY }}
+      Infomebody: ${{ secrets.WLINFOMEBODY }}
+      Infomekey: ${{ secrets.WLINFOMEKEY }}
+      Videoartlistbody: ${{ secrets.WLVIDEOARTLISTBODY }}
+      Videoartlistkey: ${{ secrets.WLVIDEOARTLISTKEY }}
+      Videoreadaccountbody: ${{ secrets.WLVIDEOREADACCOUNTBODY }}
+      Videoreadaccountkey: ${{ secrets.WLVIDEOREADACCOUNTKEY }}
+      Artdetailbody: ${{ secrets.WLARTDETAILBODY }}
+      Artdetailkey: ${{ secrets.WLARTDETAILKEY }}
       PUSH_KEY: ${{ secrets.PUSH_KEY }}
       BARK_PUSH: ${{ secrets.BARK_PUSH }}
       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
@@ -64,24 +64,24 @@ jobs:
           cd ~/Scripts
           node Task/wlapp.js
         env:
-          GetdomainkeyVal: ${{ secrets.WLGetdomainkeyVal }}
-          Getdomainkey: ${{ secrets.WLGetdomainkey }}
-          Userloginbody: ${{ secrets.WLUserloginbody }}
-          Userloginkey: ${{ secrets.WLUserloginkey }}
-          Artlistbody: ${{ secrets.WLArtlistbody }}
-          Artlistkey: ${{ secrets.WLArtlistkey }}
-          Artstationurl: ${{ secrets.WLArtstationurl }}
-          Artstationkey: ${{ secrets.WLArtstationkey }}
-          Readaccountbody: ${{ secrets.WLReadaccountbody }}
-          Readaccountkey: ${{ secrets.WLReadaccountkey }}
-          Infomebody: ${{ secrets.WLInfomebody }}
-          Infomekey: ${{ secrets.WLInfomekey }}
-          Videoartlistbody: ${{ secrets.WLVideoartlistbody }}
-          Videoartlistkey: ${{ secrets.WLVideoartlistkey }}
-          Videoreadaccountbody: ${{ secrets.WLVideoreadaccountbody }}
-          Videoreadaccountkey: ${{ secrets.WLVideoreadaccountkey }}
-          Artdetailbody: ${{ secrets.WLArtdetailbody }}
-          Artdetailkey: ${{ secrets.WLArtdetailkey }}
+          GetdomainkeyVal: ${{ secrets.WLGETDOMAINKEYVAL }}
+          Getdomainkey: ${{ secrets.WLGETDOMAINKEY }}
+          Userloginbody: ${{ secrets.WLUSERLOGINBODY }}
+          Userloginkey: ${{ secrets.WLUSERLOGINKEY }}
+          Artlistbody: ${{ secrets.WLARTLISTBODY }}
+          Artlistkey: ${{ secrets.WLARTLISTKEY }}
+          Artstationurl: ${{ secrets.WLARTSTATIONURL }}
+          Artstationkey: ${{ secrets.WLARTSTATIONKEY }}
+          Readaccountbody: ${{ secrets.WLREADACCOUNTBODY }}
+          Readaccountkey: ${{ secrets.WLREADACCOUNTKEY }}
+          Infomebody: ${{ secrets.WLINFOMEBODY }}
+          Infomekey: ${{ secrets.WLINFOMEKEY }}
+          Videoartlistbody: ${{ secrets.WLVIDEOARTLISTBODY }}
+          Videoartlistkey: ${{ secrets.WLVIDEOARTLISTKEY }}
+          Videoreadaccountbody: ${{ secrets.WLVIDEOREADACCOUNTBODY }}
+          Videoreadaccountkey: ${{ secrets.WLVIDEOREADACCOUNTKEY }}
+          Artdetailbody: ${{ secrets.WLARTDETAILBODY }}
+          Artdetailkey: ${{ secrets.WLARTDETAILKEY }}
           
 
 
