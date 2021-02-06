@@ -575,6 +575,7 @@ async function getdomin() {
       headers: JSON.parse(getdomainkeyVal),
     };
     $.post(url, async (err, resp, data) => {
+      $.log(data);
       try {
         if (err) {
           console.log("⛔️API查询请求失败❌ ‼️‼️");
