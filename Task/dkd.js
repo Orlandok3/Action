@@ -204,6 +204,7 @@ $.msg(dkdtxbody,"多看点dkdtxbody成功！")
         dkdtxhd = dkdtxhdArr[i];
         dkdtxbody = dkdtxbodyArr[i];
         await dkdqd()
+        await $.wait(100000); 
       }
     }
   }
