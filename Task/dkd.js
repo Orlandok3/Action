@@ -190,6 +190,8 @@ $.msg(dkdtxbody,"多看点dkdtxbody成功！")
           }
       });
 
+    $.msg("dkdurlArr账号数量为",dkdurlArr.length)
+
 
 
     for (let i = 0; i < dkdurlArr.length; i++) {
