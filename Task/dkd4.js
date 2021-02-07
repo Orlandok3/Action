@@ -68,6 +68,7 @@ let dkdhd = $.getdata('dkdhd')
 let dkdbody = $.getdata('dkdbody')
 let dkdtxurl = $.getdata('dkdtxurl')
 let dkdtxhd = $.getdata('dkdtxhd')
+let dkdtxbody = $.getdata('dkdtxbody')
 
 
 const dkdurlArr = []
@@ -75,6 +76,7 @@ const dkdhdArr = []
 const dkdbodyArr = []
 const dkdtxurlArr = []
 const dkdtxhdArr = []
+const dkdtxbodyArr = []
 
 /*
 $.setdata('','dkdurl')
@@ -172,6 +174,21 @@ $.msg(dkdtxbody,"多看点dkdtxbody成功！")
             dkdtxhdArr.push(dkdtxhd[item])
           }
       });
+    if (process.env.Dkdtxbody&& process.env.Dkdtxbody.indexOf('#') > -1) {
+     dkdtxbody = process.env.Dkdtxbody.split('#');
+     console.log(`您選擇的是用"#"隔開\n`)
+    }
+    else if (process.env.Dkdtxbody && process.env.Dkdtxbody.indexOf('\n') > -1) {
+     dkdtxbody = process.env.Dkdtxbody.split('\n');
+     console.log(`您選擇的是用換行隔開\n`)
+    } else {
+     dkdtxbody = process.env.Dkdtxbody.split()
+    };
+    Object.keys(dkdtxbody).forEach((item) => {
+          if (dkdtxbody[item]) {
+            dkdtxbodyArr.push(dkdtxbody[item])
+          }
+      });
 
     console.log("dkdurlArr账号数量为",dkdurlArr.length)
 
@@ -185,6 +202,7 @@ $.msg(dkdtxbody,"多看点dkdtxbody成功！")
         dkdbody = dkdbodyArr[i];
         dkdtxurl = dkdtxurlArr[i];
         dkdtxhd = dkdtxhdArr[i];
+        dkdtxbody = dkdtxbodyArr[i];
         await dkdqd()
         await $.wait(100000);
       }
@@ -397,7 +415,7 @@ let sx = dkdtxhd.match(/headerInfo":"\w+/)+''
 let url = {
         url : 'http://dkd-api.dysdk.com/lotto/index?'+dkdbody+'&headerInfo='+sx.replace('headerInfo":"',""),
         headers : JSON.parse(dkdtxhd),
-        body : dkdbody,}
+        body : dkdtxbody,}
       $.post(url, async (err, resp, data) => {
         try {
          //$.log(str.replace('headerInfo":"',""))
@@ -460,17 +478,10 @@ if(result.status_code == 10020){
 function dkdtx(timeout = 0) {
   return new Promise((resolve) => {
 let str = dkdtxhd.match(/headerInfo":"\w+/)+''
-if(txbody >= 50){
-   txval = 50
-  }else{
-   txval = 5
- }
-
-console.log('提现设置成功🌝 '+txval)
 let url = {
         url : 'http://dkd-api.dysdk.com/money/withdraw_do?'+dkdbody+'&headerInfo='+str.replace('headerInfo":"',""),
         headers : JSON.parse(dkdtxhd),
-        body : `{"money":${txval},"type":2,"withdraw_card":null,"program":8,"is_special":1}`,}
+        body : dkdtxbody,}
       $.post(url, async (err, resp, data) => {
         try {
          //$.log(str.replace('headerInfo":"',""))
@@ -550,7 +561,6 @@ let url = {
            //$.log(dkdbody)
     const result = JSON.parse(data)
         if(result.status_code == 200){
-          let txbody = result.data.cash
        $.msg($.name+'运行完毕！',"",'用户信息回执:成功🌝\n'+'用户名: '+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold)
 }
 if(result.status_code == 10020){
