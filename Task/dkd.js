@@ -459,33 +459,34 @@ if(result.status_code == 10020){
 //多看点提现
 function dkdtx(timeout = 0) {
   return new Promise((resolve) => {
-let str = dkdtxhd.match(/headerInfo":"\w+/)+''
-if(txbody >= 50){
-   txval = 50
-  }else{
-   txval = 5
- }
-
-console.log('提现设置成功🌝 '+txval)
-let url = {
-        url : 'http://dkd-api.dysdk.com/money/withdraw_do?'+dkdbody+'&headerInfo='+str.replace('headerInfo":"',""),
-        headers : JSON.parse(dkdtxhd),
-        body : `{"money":${txval},"type":2,"withdraw_card":null,"program":8,"is_special":1}`,}
-      $.post(url, async (err, resp, data) => {
-        try {
-         //$.log(str.replace('headerInfo":"',""))
-    const result = JSON.parse(data)
-        if(result.status_code == 200){
-        console.log('提现回执:成功🌝 '+result.message)
-}
-if(result.status_code == 10020){
-        console.log('提现回执:失败🚫 '+result.message)}
-        } catch (e) {
-          //$.logErr(e, resp);
-        } finally {
-          resolve()
-        }
-    },timeout)
+    let str = dkdtxhd.match(/headerInfo":"\w+/)+''
+    let txval = ''
+    if(txbody >= 50){
+       txval = 50
+      }else{
+       txval = 5
+     }
+    console.log('00000提现设置成功🌝 '+txbody)
+    console.log('1111111提现设置成功🌝 '+txval)
+    let url = {
+            url : 'http://dkd-api.dysdk.com/money/withdraw_do?'+dkdbody+'&headerInfo='+str.replace('headerInfo":"',""),
+            headers : JSON.parse(dkdtxhd),
+            body : `{"money":${txval},"type":2,"withdraw_card":null,"program":8,"is_special":1}`,}
+    $.post(url, async (err, resp, data) => {
+      try {
+       //$.log(str.replace('headerInfo":"',""))
+      const result = JSON.parse(data)
+      if(result.status_code == 200){
+      console.log('提现回执:成功🌝 '+result.message)
+      }
+      if(result.status_code == 10020){
+              console.log('提现回执:失败🚫 '+result.message)}
+              } catch (e) {
+                //$.logErr(e, resp);
+              } finally {
+                resolve()
+              }
+        },timeout)
   })
 }
 
@@ -550,7 +551,7 @@ let url = {
            //$.log(dkdbody)
     const result = JSON.parse(data)
         if(result.status_code == 200){
-          let txbody = result.data.cash
+        let txbody = result.data.cash
        $.msg($.name+'运行完毕！',"",'用户信息回执:成功🌝\n'+'用户名: '+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold)
 }
 if(result.status_code == 10020){
