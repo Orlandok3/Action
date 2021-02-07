@@ -186,7 +186,19 @@ $.msg(dkdtxbody,"多看点dkdtxbody成功！")
         dkdtxurl = dkdtxurlArr[i];
         dkdtxhd = dkdtxhdArr[i];
         await dkdqd()
-        await $.wait(30000);
+        await dkdgg()
+        await dkdsc()
+        await dkdbx()
+        await dkdbxfb()
+        await dkdsxzp()
+        await dkdcj()
+        await dkdfx()
+        await dkdxs()
+        await dkdxx()
+        await dkdz()
+        await dkdyq()
+        await dkdtx()
+        await $.wait(100000);
       }
     }
   }
@@ -488,7 +500,7 @@ function dkdtx(timeout = 0) {
     if(txbody >= 50){
        txval = 50
       }else{
-       txval = 5
+       txval = 3
      }
 
     console.log('获取txbody成功🌝 ',txbody)
@@ -540,22 +552,6 @@ let url = {
                 console.log('签到回执:失败🚫 '+result.message)
 
         }
-await dkdgg()
-await dkdsc()
-await dkdbx()
-await dkdbxfb()
-await dkdsxzp()
-await dkdcj()
-await dkdfx()
-await dkdxs()
-await dkdxx()
-await dkdz()
-await dkdyq()
-await dkdtx()
-
-await $.wait(100000);
-
-
         } catch (e) {
           //$.logErr(e, resp);
         } finally {
