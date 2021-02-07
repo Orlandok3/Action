@@ -244,11 +244,11 @@ $.log(dkdtxbody)
       const result = JSON.parse(data)
           if(result.status_code == 200){
          txbody = result.data.cash
-         $.msg($.name+'运行完毕！',"",'用户信息回执:成功🌝\n'+'用户名: '+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold)
+         console.log($.name+'运行完毕！',"",'用户信息回执:成功🌝\n'+'用户名: '+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold)
   }
   //console.log("txbody为",txbody)
   if(result.status_code == 10020){
-          $.msg($.name,"",'运行完毕，用户信息获取失败🚫 '+result.message)}
+          console.log($.name,"",'运行完毕，用户信息获取失败🚫 '+result.message)}
           } catch (e) {
             //$.logErr(e, resp);
           } finally {
@@ -269,10 +269,10 @@ let url = {
            //$.log(dkdbody)
     const result = JSON.parse(data)
         if(result.status_code == 200){
-        $.msg('广告视频回执:成功🌝 '+result.data.award)
+        console.log('广告视频回执:成功🌝 '+result.data.award)
 }
 if(result.status_code == 10020){
-        $.msg('广告视频回执:失败🚫 '+result.message)}
+        console.log('广告视频回执:失败🚫 '+result.message)}
         } catch (e) {
           //$.logErr(e, resp);
         } finally {
@@ -293,10 +293,10 @@ let url = {
            //$.log(dkdbody)
     const result = JSON.parse(data)
         if(result.status_code == 200){
-        $.msg('视频宝箱回执:成功🌝 '+result.data.award)
+        console.log('视频宝箱回执:成功🌝 '+result.data.award)
 }
 if(result.status_code == 10020){
-        $.msg('视频宝箱回执:失败🚫 '+result.message)}
+        console.log('视频宝箱回执:失败🚫 '+result.message)}
         } catch (e) {
           //$.logErr(e, resp);
         } finally {
@@ -317,10 +317,10 @@ let url = {
            //$.log(dkdbody)
     const result = JSON.parse(data)
         if(result.status_code == 200){
-        $.msg('视频宝箱翻倍回执:成功🌝 '+result.data.award)
+        console.log('视频宝箱翻倍回执:成功🌝 '+result.data.award)
 }
 if(result.status_code == 10020){
-        $.msg('视频宝箱翻倍回执:失败🚫 '+result.message)}
+        console.log('视频宝箱翻倍回执:失败🚫 '+result.message)}
         } catch (e) {
           //$.logErr(e, resp);
         } finally {
@@ -341,10 +341,10 @@ let url = {
            //$.log(dkdbody)
     const result = JSON.parse(data)
         if(result.status_code == 200){
-        $.msg('转盘抽奖回执:成功🌝 '+result.data.award)
+        console.log('转盘抽奖回执:成功🌝 '+result.data.award)
 }
 if(result.status_code == 10020){
-        $.msg('转盘抽奖回执:失败🚫 '+result.message)}
+        console.log('转盘抽奖回执:失败🚫 '+result.message)}
         } catch (e) {
           //$.logErr(e, resp);
         } finally {
@@ -365,10 +365,10 @@ let url = {
            //$.log(dkdbody)
     const result = JSON.parse(data)
         if(result.status_code == 200){
-        $.msg('分享任务回执:成功🌝 '+result.data.award)
+        console.log('分享任务回执:成功🌝 '+result.data.award)
 }
 if(result.status_code == 10020){
-        $.msg('分享任务回执:失败🚫 '+result.message)}
+        console.log('分享任务回执:失败🚫 '+result.message)}
         } catch (e) {
           //$.logErr(e, resp);
         } finally {
@@ -389,10 +389,10 @@ if(result.status_code == 10020){
              //$.log(dkdbody)
       const result = JSON.parse(data)
           if(result.status_code == 200){
-          $.msg('小说任务回执:成功🌝 '+result.data.award)
+          console.log('小说任务回执:成功🌝 '+result.data.award)
   }
   if(result.status_code == 10020){
-          $.msg('小说任务回执:失败🚫 '+result.message)}
+          console.log('小说任务回执:失败🚫 '+result.message)}
           } catch (e) {
             //$.logErr(e, resp);
           } finally {
@@ -414,10 +414,10 @@ if(result.status_code == 10020){
              //$.log(dkdbody)
       const result = JSON.parse(data)
           if(result.status_code == 200){
-          $.msg('时长任务回执:成功🌝 '+result.data.award)
+          console.log('时长任务回执:成功🌝 '+result.data.award)
   }
   if(result.status_code == 10020){
-          $.msg('时长任务回执:失败🚫 '+result.message)}
+          console.log('时长任务回执:失败🚫 '+result.message)}
           } catch (e) {
             //$.logErr(e, resp);
           } finally {
@@ -440,10 +440,10 @@ let url = {
          //$.log(str.replace('headerInfo":"',""))
     const result = JSON.parse(data)
         if(result.status_code == 200){
-        $.msg('开始刷新转抽奖页面，回执:成功🌝 剩余抽奖次数: '+result.data.times)
+        console.log('开始刷新转抽奖页面，回执:成功🌝 剩余抽奖次数: '+result.data.times)
 }
 if(result.status_code == 10020){
-        $.msg('开始刷新抽奖页面，回执:失败🚫 '+result.message)}
+        console.log('开始刷新抽奖页面，回执:失败🚫 '+result.message)}
         } catch (e) {
           //$.logErr(e, resp);
         } finally {
@@ -503,8 +503,8 @@ function dkdtx(timeout = 0) {
        txval = 15
      }
 
-    $.msg('获取txbody成功🌝 ',txbody)
-    $.msg('提现金额设置成功🌝 ',txval)
+    console.log('获取txbody成功🌝 ',txbody)
+    console.log('提现金额设置成功🌝 ',txval)
     let url = {
             url : 'http://dkd-api.dysdk.com/money/withdraw_do?'+dkdbody+'&headerInfo='+str.replace('headerInfo":"',""),
             headers : JSON.parse(dkdtxhd),
@@ -514,10 +514,10 @@ function dkdtx(timeout = 0) {
        //$.log(str.replace('headerInfo":"',""))
       const result = JSON.parse(data)
       if(result.status_code == 200){
-      $.msg('提现回执:成功🌝 '+result.message)
+      console.log('提现回执:成功🌝 '+result.message)
       }
       if(result.status_code == 10020){
-              $.msg('提现回执:失败🚫 '+result.message)}
+              console.log('提现回执:失败🚫 '+result.message)}
               } catch (e) {
                 //$.logErr(e, resp);
               } finally {
@@ -534,7 +534,7 @@ function dkdqd(timeout = 0) {
   return new Promise((resolve) => {
     setTimeout( ()=>{
       if (typeof dkdurl === "undefined") {
-        $.msg($.name,"",'请先获取多看点Cookie!😓',)
+        console.log($.name,"",'请先获取多看点Cookie!😓',)
         return
       }
 let url = {
@@ -546,10 +546,10 @@ let url = {
            //$.log(dkdbody)
     const result = JSON.parse(data)
         if(result.status_code == 200){
-        $.msg('签到回执:成功🌝 '+result.data.sign_award)
+        console.log('签到回执:成功🌝 '+result.data.sign_award)
         }
         if(result.status_code == 10020){
-                $.msg('签到回执:失败🚫 '+result.message)
+                console.log('签到回执:失败🚫 '+result.message)
 
         }
         } catch (e) {
