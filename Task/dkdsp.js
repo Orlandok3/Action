@@ -51,7 +51,8 @@ const dkdhdArr = []
 const dkdbodyArr = []
 const bodysArr = []
 
-
+//$.setdata('','dkdvd_body')
+//$.msg(dkdvd_body,"多看点dkdvd_body成功！")
 
 !(async () => {
   if (process.env.Dkdhd&& process.env.Dkdhd.indexOf('#') > -1) {

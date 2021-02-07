@@ -78,6 +78,22 @@ const dkdtxurlArr = []
 const dkdtxhdArr = []
 const dkdtxbodyArr = []
 
+/*
+$.setdata('','dkdurl')
+$.setdata('','dkdhd')
+$.setdata('','dkdbody')
+$.setdata('','dkdtxurl')
+$.setdata('','dkdtxhd')
+$.setdata('','dkdtxbody')
+*/
+/*
+$.msg(dkdurl,"多看点dkdurl成功！")
+$.msg(dkdhd,"多看点dkdhd成功！")
+$.msg(dkdbody,"多看点dkdbody成功！")
+$.msg(dkdtxurl,"多看点dkdtxurl成功！")
+$.msg(dkdtxhd,"多看点dkdtxhd成功！")
+$.msg(dkdtxbody,"多看点dkdtxbody成功！")
+*/
 !(async () => {
   if (typeof $request !== "undefined") {
     await dkdck()
@@ -215,11 +231,11 @@ $.log(dkdtxhd)
     $.setdata($request.body,'dkdtxbody')
 $.log(dkdtxbody)
    $.msg($.name,"","多看点提现数据获取成功！")
-   
+
     }
   }
 
-//多看点广告视频     
+//多看点广告视频
 function dkdgg(timeout = 0) {
   return new Promise((resolve) => {
 let url = {
@@ -243,7 +259,7 @@ if(result.status_code == 10020){
     },timeout)
   })
 }
-//多看点视频宝箱     
+//多看点视频宝箱
 function dkdbx(timeout = 0) {
   return new Promise((resolve) => {
 let url = {
@@ -267,7 +283,7 @@ if(result.status_code == 10020){
     },timeout)
   })
 }
-//多看点视频宝箱翻倍     
+//多看点视频宝箱翻倍
 function dkdbxfb(timeout = 0) {
   return new Promise((resolve) => {
 let url = {
@@ -291,7 +307,7 @@ if(result.status_code == 10020){
     },timeout)
   })
 }
-//多看点转盘抽奖   
+//多看点转盘抽奖
 function dkdcj(timeout = 0) {
   return new Promise((resolve) => {
 let url = {
@@ -443,11 +459,11 @@ if(result.status_code == 10020){
           body : '',}
         $.post(url, async (err, resp, data) => {
           try {
-            
+
       const result = JSON.parse(data)
-     
+
           } catch (e) {
-           
+
 
           } finally {
             resolve()
@@ -480,7 +496,7 @@ if(result.status_code == 10020){
     },timeout)
   })
 }
- 
+
 
 
 //多看点签到
@@ -517,7 +533,7 @@ await dkdxs()
 await dkdxx()
 await dkdz()
 await dkdyq()
-await dkdtx() 
+await dkdtx()
 
 
         } catch (e) {
@@ -530,7 +546,7 @@ await dkdtx()
   })
 }
 
-//多看点用户信息     
+//多看点用户信息
 function dkdxx(timeout = 0) {
   return new Promise((resolve) => {
 let url = {
