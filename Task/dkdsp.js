@@ -44,7 +44,6 @@ TG电报群: https://t.me/hahaha8028
 const $ = new Env("多看点视频")
 let dkdbody = $.getdata('dkdbody')
 let dkdhd = $.getdata('dkdhd')
-let ReadArr = [], YouthBody = "", readscore = 0;
 let bodys = $.getdata("dkdvd_body");
 
 const dkdhdArr = []
@@ -117,6 +116,7 @@ const bodysArr = []
       dkdhd = dkdhdArr[i];
       dkdbody = dkdbodyArr[i];
 
+      let ReadArr = [], YouthBody = "", readscore = 0;
       YouthBody = bodys.split('&');
       Object.keys(YouthBody).forEach((item) => {
         if (YouthBody[item]) {
@@ -138,7 +138,7 @@ const bodysArr = []
         }
         await AutoRead();
       }
-      
+
       await $.wait(130000);
     }
   }

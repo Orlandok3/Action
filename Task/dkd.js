@@ -186,7 +186,7 @@ $.msg(dkdtxbody,"多看点dkdtxbody成功！")
         dkdtxurl = dkdtxurlArr[i];
         dkdtxhd = dkdtxhdArr[i];
         await dkdqd()
-        await $.wait(100000);
+        await $.wait(30000);
       }
     }
   }
@@ -234,7 +234,7 @@ $.log(dkdtxbody)
          txbody = result.data.cash
          $.msg($.name+'运行完毕！',"",'用户信息回执:成功🌝\n'+'用户名: '+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold)
   }
-  console.log("txbody为",txbody)
+  //console.log("txbody为",txbody)
   if(result.status_code == 10020){
           $.msg($.name,"",'运行完毕，用户信息获取失败🚫 '+result.message)}
           } catch (e) {
@@ -491,8 +491,8 @@ function dkdtx(timeout = 0) {
        txval = 5
      }
 
-    console.log('00000提现设置成功🌝 ',txbody)
-    console.log('1111111提现设置成功🌝 ',txval)
+    console.log('获取txbody成功🌝 ',txbody)
+    console.log('提现金额设置成功🌝 ',txval)
     let url = {
             url : 'http://dkd-api.dysdk.com/money/withdraw_do?'+dkdbody+'&headerInfo='+str.replace('headerInfo":"',""),
             headers : JSON.parse(dkdtxhd),
@@ -552,6 +552,8 @@ await dkdxx()
 await dkdz()
 await dkdyq()
 await dkdtx()
+
+await $.wait(100000);
 
 
         } catch (e) {
