@@ -116,7 +116,10 @@ const bodysArr = []
       dkdhd = dkdhdArr[i];
       dkdbody = dkdbodyArr[i];
 
-      let ReadArr = [], YouthBody = "", readscore = 0;
+      ReadArr = []
+      YouthBody = ""
+      readscore = 0
+
       YouthBody = bodys.split('&');
       Object.keys(YouthBody).forEach((item) => {
         if (YouthBody[item]) {
