@@ -138,6 +138,8 @@ const bodysArr = []
         }
         await AutoRead();
       }
+      
+      await $.wait(130000);
     }
   }
 
