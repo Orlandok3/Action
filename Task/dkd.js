@@ -269,10 +269,10 @@ let url = {
            //$.log(dkdbody)
     const result = JSON.parse(data)
         if(result.status_code == 200){
-        console.log('广告视频回执:成功🌝 '+result.data.award)
+        $.msg('广告视频回执:成功🌝 '+result.data.award)
 }
 if(result.status_code == 10020){
-        console.log('广告视频回执:失败🚫 '+result.message)}
+        $.msg('广告视频回执:失败🚫 '+result.message)}
         } catch (e) {
           //$.logErr(e, resp);
         } finally {
@@ -293,10 +293,10 @@ let url = {
            //$.log(dkdbody)
     const result = JSON.parse(data)
         if(result.status_code == 200){
-        console.log('视频宝箱回执:成功🌝 '+result.data.award)
+        $.msg('视频宝箱回执:成功🌝 '+result.data.award)
 }
 if(result.status_code == 10020){
-        console.log('视频宝箱回执:失败🚫 '+result.message)}
+        $.msg('视频宝箱回执:失败🚫 '+result.message)}
         } catch (e) {
           //$.logErr(e, resp);
         } finally {
@@ -317,10 +317,10 @@ let url = {
            //$.log(dkdbody)
     const result = JSON.parse(data)
         if(result.status_code == 200){
-        console.log('视频宝箱翻倍回执:成功🌝 '+result.data.award)
+        $.msg('视频宝箱翻倍回执:成功🌝 '+result.data.award)
 }
 if(result.status_code == 10020){
-        console.log('视频宝箱翻倍回执:失败🚫 '+result.message)}
+        $.msg('视频宝箱翻倍回执:失败🚫 '+result.message)}
         } catch (e) {
           //$.logErr(e, resp);
         } finally {
@@ -341,10 +341,10 @@ let url = {
            //$.log(dkdbody)
     const result = JSON.parse(data)
         if(result.status_code == 200){
-        console.log('转盘抽奖回执:成功🌝 '+result.data.award)
+        $.msg('转盘抽奖回执:成功🌝 '+result.data.award)
 }
 if(result.status_code == 10020){
-        console.log('转盘抽奖回执:失败🚫 '+result.message)}
+        $.msg('转盘抽奖回执:失败🚫 '+result.message)}
         } catch (e) {
           //$.logErr(e, resp);
         } finally {
@@ -365,10 +365,10 @@ let url = {
            //$.log(dkdbody)
     const result = JSON.parse(data)
         if(result.status_code == 200){
-        console.log('分享任务回执:成功🌝 '+result.data.award)
+        $.msg('分享任务回执:成功🌝 '+result.data.award)
 }
 if(result.status_code == 10020){
-        console.log('分享任务回执:失败🚫 '+result.message)}
+        $.msg('分享任务回执:失败🚫 '+result.message)}
         } catch (e) {
           //$.logErr(e, resp);
         } finally {
@@ -389,10 +389,10 @@ if(result.status_code == 10020){
              //$.log(dkdbody)
       const result = JSON.parse(data)
           if(result.status_code == 200){
-          console.log('小说任务回执:成功🌝 '+result.data.award)
+          $.msg('小说任务回执:成功🌝 '+result.data.award)
   }
   if(result.status_code == 10020){
-          console.log('小说任务回执:失败🚫 '+result.message)}
+          $.msg('小说任务回执:失败🚫 '+result.message)}
           } catch (e) {
             //$.logErr(e, resp);
           } finally {
@@ -414,10 +414,10 @@ if(result.status_code == 10020){
              //$.log(dkdbody)
       const result = JSON.parse(data)
           if(result.status_code == 200){
-          console.log('时长任务回执:成功🌝 '+result.data.award)
+          $.msg('时长任务回执:成功🌝 '+result.data.award)
   }
   if(result.status_code == 10020){
-          console.log('时长任务回执:失败🚫 '+result.message)}
+          $.msg('时长任务回执:失败🚫 '+result.message)}
           } catch (e) {
             //$.logErr(e, resp);
           } finally {
@@ -440,10 +440,10 @@ let url = {
          //$.log(str.replace('headerInfo":"',""))
     const result = JSON.parse(data)
         if(result.status_code == 200){
-        console.log('开始刷新转抽奖页面，回执:成功🌝 剩余抽奖次数: '+result.data.times)
+        $.msg('开始刷新转抽奖页面，回执:成功🌝 剩余抽奖次数: '+result.data.times)
 }
 if(result.status_code == 10020){
-        console.log('开始刷新抽奖页面，回执:失败🚫 '+result.message)}
+        $.msg('开始刷新抽奖页面，回执:失败🚫 '+result.message)}
         } catch (e) {
           //$.logErr(e, resp);
         } finally {
@@ -500,11 +500,11 @@ function dkdtx(timeout = 0) {
     if(txbody >= 50){
        txval = 50
       }else{
-       txval = 3
+       txval = 15
      }
 
-    console.log('获取txbody成功🌝 ',txbody)
-    console.log('提现金额设置成功🌝 ',txval)
+    $.msg('获取txbody成功🌝 ',txbody)
+    $.msg('提现金额设置成功🌝 ',txval)
     let url = {
             url : 'http://dkd-api.dysdk.com/money/withdraw_do?'+dkdbody+'&headerInfo='+str.replace('headerInfo":"',""),
             headers : JSON.parse(dkdtxhd),
@@ -514,10 +514,10 @@ function dkdtx(timeout = 0) {
        //$.log(str.replace('headerInfo":"',""))
       const result = JSON.parse(data)
       if(result.status_code == 200){
-      console.log('提现回执:成功🌝 '+result.message)
+      $.msg('提现回执:成功🌝 '+result.message)
       }
       if(result.status_code == 10020){
-              console.log('提现回执:失败🚫 '+result.message)}
+              $.msg('提现回执:失败🚫 '+result.message)}
               } catch (e) {
                 //$.logErr(e, resp);
               } finally {
@@ -546,10 +546,10 @@ let url = {
            //$.log(dkdbody)
     const result = JSON.parse(data)
         if(result.status_code == 200){
-        console.log('签到回执:成功🌝 '+result.data.sign_award)
+        $.msg('签到回执:成功🌝 '+result.data.sign_award)
         }
         if(result.status_code == 10020){
-                console.log('签到回执:失败🚫 '+result.message)
+                $.msg('签到回执:失败🚫 '+result.message)
 
         }
         } catch (e) {
