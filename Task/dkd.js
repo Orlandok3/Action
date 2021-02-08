@@ -179,11 +179,6 @@ if ($.isNode()) {
 
   }
 else {
-  dkdurl = process.env.Dkdurl.split()
-  dkdhd = process.env.Dkdhd.split()
-  dkdbody = process.env.Dkdbody.split()
-  dkdtxurl = process.env.Dkdtxurl.split()
-  dkdtxhd = process.env.Dkdtxhd.split()
   Object.keys(dkdurl).forEach((item) => {
         if (dkdurl[item]) {
           dkdurlArr.push(dkdurl[item])
