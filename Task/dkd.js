@@ -68,6 +68,7 @@ let dkdhd = $.getdata('dkdhd')
 let dkdbody = $.getdata('dkdbody')
 let dkdtxurl = $.getdata('dkdtxurl')
 let dkdtxhd = $.getdata('dkdtxhd')
+let dkdvd_body = $.getdata('dkdvd_body')
 
 
 const dkdurlArr = []
