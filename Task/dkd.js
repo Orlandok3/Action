@@ -100,12 +100,16 @@ $.msg(dkdvd_body,"多看点dkdvd_body成功！")
 */
 
 if (typeof $request !== "undefined") {
+
+console.log("Arr数量为000")
 await dkdck()
 await dkdtxck()
+$.done()
 }
 
 if ($.isNode()) {
 
+    console.log("Arr数量为111")
     if (process.env.Dkdurl&& process.env.Dkdurl.indexOf('#') > -1) {
      dkdurl = process.env.Dkdurl.split('#');
      console.log(`您選擇的是用"#"隔開\n`)
@@ -186,6 +190,7 @@ if ($.isNode()) {
 }
 
 !(async () => {
+  console.log("Arr数量为",dkdurlArr.length)
   if (! dkdurlArr[0]) {
       $.msg($.name, '🔔請先獲取Cookie')
       return;
@@ -482,9 +487,10 @@ if(result.status_code == 10020){
           body : 'code=13223233&'+dkdbody,}
         $.post(url, async (err, resp, data) => {
           try {
-             //$.log(dkdbody)
+             console.log(data)
       const result = JSON.parse(data)
           } catch (e) {
+            console.log(e, resp)
             //$.logErr(e, resp);
           } finally {
             resolve()
