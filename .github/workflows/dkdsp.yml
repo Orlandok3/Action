@@ -18,6 +18,7 @@ jobs:
       Dkdhd: ${{ secrets.Dkdhd }}
       Dkdbody: ${{ secrets.Dkdbody }}
       Dkdvd_body: ${{ secrets.Dkdvd_body }}
+      Dkdvd_body2: ${{ secrets.Dkdvd_body2 }}
       PUSH_KEY: ${{ secrets.PUSH_KEY }}
       BARK_PUSH: ${{ secrets.BARK_PUSH }}
       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
@@ -52,6 +53,17 @@ jobs:
           Dkdhd: ${{ secrets.Dkdhd }}
           Dkdbody: ${{ secrets.Dkdbody }}
           Dkdvd_body: ${{ secrets.Dkdvd_body }}
+      
+  
+      - name: '运行 【dkd视频2】'
+        if: env.Dkdvd_body2         
+        run: |
+          cd ~/Scripts
+          node Task/dkdsp.js
+        env:
+          Dkdhd: ${{ secrets.Dkdhd }}
+          Dkdbody: ${{ secrets.Dkdbody }}
+          Dkdvd_body: ${{ secrets.Dkdvd_body2 }}
           
 
 
