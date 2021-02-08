@@ -209,7 +209,7 @@ let url = {
           readscore += result.data.award;
         }
         if(result.status_code == 10020){
-          console.log('开始视频红包，回执:失败🚫 '+result.message)}
+          console.log('开始视频红包，回执:失败🚫 '+result.message)
           console.log('开始视频红包，回执:失败🚫 '+result)}
           await $.wait(50000);
         } catch (e) {
