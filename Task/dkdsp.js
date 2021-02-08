@@ -171,17 +171,17 @@ function AutoRead() {
       if (readres.status_code == 200) {
         console.log(`\n本次自动刷视频获得${readres.data.award}个金币，30秒后进行下次自动刷视频🌝\n`);
         readscore += readres.data.award;
-        await $.wait(30000);
+        await $.wait(35000);
       }
       else if (readres.status_code == 200) {
         console.log(`\n本次视频获得${readres.data.award}个金币，即将开始下次视频👏🏻\n`)
         readscore += readres.data.award;
-        await $.wait(30000);
+        await $.wait(35000);
       }
 
       if (readres.message == '请先领取大额红包再来！') {
         console.log(`\n检测到红包，，即将开始领取👏🏻\n`)
-        await $.wait(10000);
+        await $.wait(1000);
         await dkdhbsp();
       }
       else if (readres.status_code == 10020) {
@@ -207,11 +207,12 @@ let url = {
         if(result.status_code == 200){
           console.log('开始视频红包，回执:成功🌝 '+result.data.award)
           readscore += result.data.award;
+          await $.wait(10000);
         }
         if(result.status_code == 10020){
           console.log('开始视频红包，回执:失败🚫 '+result.message)
           console.log('开始视频红包，回执:失败🚫 '+result)}
-          await $.wait(50000);
+          await $.wait(10000);
         } catch (e) {
           //$.logErr(e, resp);
         } finally {

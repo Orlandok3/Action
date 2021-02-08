@@ -554,11 +554,11 @@ function dkdtxn(timeout = 0) {
       const result = JSON.parse(data)
       if(result.status_code == 200){
       //console.log('提现信息:成功🌝 '+result.message)
-      console.log('提现信息:成功🌝 '+result.message+result.data.is_bindwx)
+      console.log('绑定信息:成功🌝 '+result.message+result.data.is_bindwx)
       bindwith  = result.data.is_bindwx
       }
       if(result.status_code == 10020){
-              console.log('提现信息:失败🚫 '+result.message)}
+              console.log('绑定信息:失败🚫 '+result.message)}
               } catch (e) {
                 //$.logErr(e, resp);
               } finally {
@@ -573,8 +573,12 @@ function dkdtx(timeout = 0) {
     let str = dkdtxhd.match(/headerInfo":"\w+/)+''
     if(txbody >= 50){
        txval = 50
-      }else{
+      }
+    else if(txbody >= 15){
        txval = 15
+     }
+     else {
+       return
      }
      if( bindwith == 1){
        txtd = 2
