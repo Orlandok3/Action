@@ -254,11 +254,6 @@ $.log(dkdtxbody)
              txbody = result.data.cash
              console.log($.name+'运行完毕！',"",'用户信息回执:成功🌝\n'+'用户名: '+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold+'\n\n')
               }
-              if(txbody >= 50){
-                 txval = 50
-                }else{
-                 txval = 15
-               }
           //console.log("txbody为",txbody)
           if(result.status_code == 10020){
             console.log($.name,"",'运行完毕，用户信息获取失败🚫 '+result.message)}
@@ -512,7 +507,7 @@ function dkdtxn(timeout = 0) {
     let str = dkdtxhd.match(/headerInfo":"\w+/)+''
     let url = {
             url : 'http://dkd-api.dysdk.com/money/withdraw_do?'+dkdbody+'&headerInfo='+str.replace('headerInfo":"',""),
-            headers : JSON.parse(dkdtxhd),
+            headers : JSON.parse(dkdhd),
             body : `{}`,}
     $.post(url, async (err, resp, data) => {
       try {
@@ -521,12 +516,7 @@ function dkdtxn(timeout = 0) {
       if(result.status_code == 200){
       console.log('提现信息:成功🌝 '+result.message)
       console.log('222提现信息:成功🌝 '+result.data.is_bindwx)
-      if(result.data.is_bindwx == 1){
-        txtd = 2
-        }else {
-        txtd = 1
-      }
-
+      bindwith  = result.data.is_bindwx
       }
       if(result.status_code == 10020){
               console.log('提现信息:失败🚫 '+result.message)}
@@ -542,9 +532,16 @@ function dkdtxn(timeout = 0) {
 function dkdtx(timeout = 0) {
   return new Promise((resolve) => {
     let str = dkdtxhd.match(/headerInfo":"\w+/)+''
-
-
-
+    if(txbody >= 50){
+       txval = 50
+      }else{
+       txval = 15
+     }
+     if( bindwith == 1){
+       txtd = 2
+       }else {
+       txtd = 1
+     }
     //console.log('获取txbody成功🌝 ',txbody)
     //console.log('提现金额设置成功🌝 ',txval)
     let url = {
