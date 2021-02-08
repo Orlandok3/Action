@@ -177,7 +177,7 @@ $.msg(dkdtxbody,"多看点dkdtxbody成功！")
           }
       });
 
-    console.log("dkdurlArr账号数量为",dkdurlArr.length)
+    console.log("Arr数量为",dkdurlArr.length)
 
 
 
@@ -194,21 +194,21 @@ $.msg(dkdtxbody,"多看点dkdtxbody成功！")
         await dkdsc()
         await dkdbx()
         await dkdbxfb()
-        await dkdfx()
-        await dkdxs()
         await dkdz()
         await dkdyq()
-        if (hour <= 13 ){
-        await dkdqd()
-        await dkdsxzp()
-        await dkdcj()
-        }
         console.log("现在时间为",hour)
+        if (hour <= 13 ){
+          await dkdfx()
+          await dkdxs()
+          await dkdqd()
+          await dkdsxzp()
+          await dkdcj()
+        }
         if (hour >= 7 && hour <= 16){
           await dkdtxn()
           await dkdtx()
         }
-        await $.wait(100000);
+        await $.wait(30000);
       }
     }
   }
@@ -254,7 +254,7 @@ $.log(dkdtxbody)
           const result = JSON.parse(data)
           if(result.status_code == 200){
              txbody = result.data.cash
-             console.log('\n\n'+$.name+'运行完毕！',"",'用户信息回执:成功🌝\n'+'用户名: '+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold)
+             console.log('\n\n'+$.name+'运行开始！',"",'用户信息回执:成功🌝\n'+'用户名: 666'+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold)
               }
           //console.log("txbody为",txbody)
           if(result.status_code == 10020){
@@ -537,7 +537,7 @@ function dkdtx(timeout = 0) {
     if(txbody >= 50){
        txval = 50
       }else{
-       txval = 1
+       txval = 15
      }
      if( bindwith == 1){
        txtd = 2
