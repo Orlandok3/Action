@@ -99,103 +99,93 @@ $.msg(dkdtxbody,"多看点dkdtxbody成功！")
 $.msg(dkdvd_body,"多看点dkdvd_body成功！")
 */
 
-if (typeof $request !== "undefined") {
-
-console.log("Arr数量为000")
-await dkdck()
-await dkdtxck()
-$.done()
-}
-
 if ($.isNode()) {
+  if (process.env.Dkdurl&& process.env.Dkdurl.indexOf('#') > -1) {
+   dkdurl = process.env.Dkdurl.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.Dkdurl && process.env.Dkdurl.indexOf('\n') > -1) {
+   dkdurl = process.env.Dkdurl.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   dkdurl = process.env.Dkdurl.split()
+  };
+  Object.keys(dkdurl).forEach((item) => {
+        if (dkdurl[item]) {
+          dkdurlArr.push(dkdurl[item])
+        }
+    });
+  if (process.env.Dkdhd&& process.env.Dkdhd.indexOf('#') > -1) {
+   dkdhd = process.env.Dkdhd.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.Dkdhd && process.env.Dkdhd.indexOf('\n') > -1) {
+   dkdhd = process.env.Dkdhd.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   dkdhd = process.env.Dkdhd.split()
+  };
+  Object.keys(dkdhd).forEach((item) => {
+        if (dkdhd[item]) {
+          dkdhdArr.push(dkdhd[item])
+        }
+    });
+  if (process.env.Dkdbody&& process.env.Dkdbody.indexOf('#') > -1) {
+   dkdbody = process.env.Dkdbody.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.Dkdbody && process.env.Dkdbody.indexOf('\n') > -1) {
+   dkdbody = process.env.Dkdbody.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   dkdbody = process.env.Dkdbody.split()
+  };
+  Object.keys(dkdbody).forEach((item) => {
+        if (dkdbody[item]) {
+          dkdbodyArr.push(dkdbody[item])
+        }
+    });
+  if (process.env.Dkdtxurl&& process.env.Dkdtxurl.indexOf('#') > -1) {
+   dkdtxurl = process.env.Dkdtxurl.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.Dkdtxurl && process.env.Dkdtxurl.indexOf('\n') > -1) {
+   dkdtxurl = process.env.Dkdtxurl.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   dkdtxurl = process.env.Dkdtxurl.split()
+  };
+  Object.keys(dkdtxurl).forEach((item) => {
+        if (dkdtxurl[item]) {
+          dkdtxurlArr.push(dkdtxurl[item])
+        }
+    });
+  if (process.env.Dkdtxhd&& process.env.Dkdtxhd.indexOf('#') > -1) {
+   dkdtxhd = process.env.Dkdtxhd.split('#');
+   console.log(`您選擇的是用"#"隔開\n`)
+  }
+  else if (process.env.Dkdtxhd && process.env.Dkdtxhd.indexOf('\n') > -1) {
+   dkdtxhd = process.env.Dkdtxhd.split('\n');
+   console.log(`您選擇的是用換行隔開\n`)
+  } else {
+   dkdtxhd = process.env.Dkdtxhd.split()
+  };
+  Object.keys(dkdtxhd).forEach((item) => {
+        if (dkdtxhd[item]) {
+          dkdtxhdArr.push(dkdtxhd[item])
+        }
+    });
 
-    console.log("Arr数量为111")
-    if (process.env.Dkdurl&& process.env.Dkdurl.indexOf('#') > -1) {
-     dkdurl = process.env.Dkdurl.split('#');
-     console.log(`您選擇的是用"#"隔開\n`)
-    }
-    else if (process.env.Dkdurl && process.env.Dkdurl.indexOf('\n') > -1) {
-     dkdurl = process.env.Dkdurl.split('\n');
-     console.log(`您選擇的是用換行隔開\n`)
-    } else {
-     dkdurl = process.env.Dkdurl.split()
-    };
-    Object.keys(dkdurl).forEach((item) => {
-          if (dkdurl[item]) {
-            dkdurlArr.push(dkdurl[item])
-          }
-      });
-    if (process.env.Dkdhd&& process.env.Dkdhd.indexOf('#') > -1) {
-     dkdhd = process.env.Dkdhd.split('#');
-     console.log(`您選擇的是用"#"隔開\n`)
-    }
-    else if (process.env.Dkdhd && process.env.Dkdhd.indexOf('\n') > -1) {
-     dkdhd = process.env.Dkdhd.split('\n');
-     console.log(`您選擇的是用換行隔開\n`)
-    } else {
-     dkdhd = process.env.Dkdhd.split()
-    };
-    Object.keys(dkdhd).forEach((item) => {
-          if (dkdhd[item]) {
-            dkdhdArr.push(dkdhd[item])
-          }
-      });
-    if (process.env.Dkdbody&& process.env.Dkdbody.indexOf('#') > -1) {
-     dkdbody = process.env.Dkdbody.split('#');
-     console.log(`您選擇的是用"#"隔開\n`)
-    }
-    else if (process.env.Dkdbody && process.env.Dkdbody.indexOf('\n') > -1) {
-     dkdbody = process.env.Dkdbody.split('\n');
-     console.log(`您選擇的是用換行隔開\n`)
-    } else {
-     dkdbody = process.env.Dkdbody.split()
-    };
-    Object.keys(dkdbody).forEach((item) => {
-          if (dkdbody[item]) {
-            dkdbodyArr.push(dkdbody[item])
-          }
-      });
-    if (process.env.Dkdtxurl&& process.env.Dkdtxurl.indexOf('#') > -1) {
-     dkdtxurl = process.env.Dkdtxurl.split('#');
-     console.log(`您選擇的是用"#"隔開\n`)
-    }
-    else if (process.env.Dkdtxurl && process.env.Dkdtxurl.indexOf('\n') > -1) {
-     dkdtxurl = process.env.Dkdtxurl.split('\n');
-     console.log(`您選擇的是用換行隔開\n`)
-    } else {
-     dkdtxurl = process.env.Dkdtxurl.split()
-    };
-    Object.keys(dkdtxurl).forEach((item) => {
-          if (dkdtxurl[item]) {
-            dkdtxurlArr.push(dkdtxurl[item])
-          }
-      });
-    if (process.env.Dkdtxhd&& process.env.Dkdtxhd.indexOf('#') > -1) {
-     dkdtxhd = process.env.Dkdtxhd.split('#');
-     console.log(`您選擇的是用"#"隔開\n`)
-    }
-    else if (process.env.Dkdtxhd && process.env.Dkdtxhd.indexOf('\n') > -1) {
-     dkdtxhd = process.env.Dkdtxhd.split('\n');
-     console.log(`您選擇的是用換行隔開\n`)
-    } else {
-     dkdtxhd = process.env.Dkdtxhd.split()
-    };
-    Object.keys(dkdtxhd).forEach((item) => {
-          if (dkdtxhd[item]) {
-            dkdtxhdArr.push(dkdtxhd[item])
-          }
-      });
-    console.log("Arr数量为",dkdurlArr.length)
+  console.log("Arr数量为",dkdurlArr.length)
 
 }
 
 !(async () => {
-  console.log("Arr数量为",dkdurlArr.length)
-  if (! dkdurlArr[0]) {
-      $.msg($.name, '🔔請先獲取Cookie')
-      return;
-    }
-  else {
+
+  if (typeof $request !== "undefined") {
+    await dkdck()
+    await dkdtxck()
+  } else {
     for (let i = 0; i < dkdurlArr.length; i++) {
       if (dkdurlArr[i]) {
         message = ''
@@ -230,7 +220,6 @@ if ($.isNode()) {
 })()
   .catch((e) => $.logErr(e))
   .finally(() => $.done())
-
 //多看点数据获取
 function dkdck() {
    if ($request.url.indexOf("index") > -1) {
@@ -487,10 +476,9 @@ if(result.status_code == 10020){
           body : 'code=13223233&'+dkdbody,}
         $.post(url, async (err, resp, data) => {
           try {
-             console.log(data)
+             //$.log(dkdbody)
       const result = JSON.parse(data)
           } catch (e) {
-            console.log(e, resp)
             //$.logErr(e, resp);
           } finally {
             resolve()
