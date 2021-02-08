@@ -100,6 +100,7 @@ $.msg(dkdvd_body,"多看点dkdvd_body成功！")
 */
 
 if ($.isNode()) {
+    console.log("111")
     if (process.env.Dkdurl&& process.env.Dkdurl.indexOf('#') > -1) {
      dkdurl = process.env.Dkdurl.split('#');
      console.log(`您選擇的是用"#"隔開\n`)
@@ -179,6 +180,7 @@ if ($.isNode()) {
 
   }
 else {
+  console.log("222")
   Object.keys(dkdurl).forEach((item) => {
         if (dkdurl[item]) {
           dkdurlArr.push(dkdurl[item])
@@ -207,11 +209,14 @@ else {
   }
 
 !(async () => {
+  console.log("333")
 
   if (typeof $request !== "undefined") {
+    console.log("444")
     await dkdck()
     await dkdtxck()
   } else {
+    console.log("555")
     for (let i = 0; i < dkdurlArr.length; i++) {
       if (dkdurlArr[i]) {
         message = ''
