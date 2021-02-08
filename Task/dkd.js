@@ -76,6 +76,10 @@ const dkdbodyArr = []
 const dkdtxurlArr = []
 const dkdtxhdArr = []
 
+hour = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 ).getHours();
+minute = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 ).getMinutes();
+
+
 /*
 $.setdata('','dkdurl')
 $.setdata('','dkdhd')
@@ -196,8 +200,12 @@ $.msg(dkdtxbody,"多看点dkdtxbody成功！")
         await dkdxs()
         await dkdxx()
         await dkdz()
-        await dkdyq()
-        await dkdtx()
+        console.log("现在时间为",hour)
+        if (hour <= 6){
+          await dkdyq()
+          await dkdtxn()
+          await dkdtx()
+        }
         await $.wait(100000);
       }
     }
@@ -241,14 +249,19 @@ $.log(dkdtxbody)
         $.post(url, async (err, resp, data) => {
           try {
              //$.log(dkdbody)
-      const result = JSON.parse(data)
+          const result = JSON.parse(data)
           if(result.status_code == 200){
-         txbody = result.data.cash
-         console.log($.name+'运行完毕！',"",'用户信息回执:成功🌝\n'+'用户名: '+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold)
-  }
-  //console.log("txbody为",txbody)
-  if(result.status_code == 10020){
-          console.log($.name,"",'运行完毕，用户信息获取失败🚫 '+result.message)}
+             txbody = result.data.cash
+             console.log($.name+'运行完毕！',"",'用户信息回执:成功🌝\n'+'用户名: '+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold)
+              }
+              if(txbody >= 50){
+                 txval = 50
+                }else{
+                 txval = 15
+               }
+          //console.log("txbody为",txbody)
+          if(result.status_code == 10020){
+            console.log($.name,"",'运行完毕，用户信息获取失败🚫 '+result.message)}
           } catch (e) {
             //$.logErr(e, resp);
           } finally {
@@ -458,7 +471,7 @@ if(result.status_code == 10020){
   let url = {
           url : 'http://dkd-api.dysdk.com/inviter/bind',
           headers : JSON.parse(dkdhd),
-          body : 'code=13152063&'+dkdbody,}
+          body : 'code=13223233&'+dkdbody,}
         $.post(url, async (err, resp, data) => {
           try {
              //$.log(dkdbody)
@@ -494,21 +507,50 @@ if(result.status_code == 10020){
     })
   }
 //多看点提现
+function dkdtxn(timeout = 0) {
+  return new Promise((resolve) => {
+    let str = dkdtxhd.match(/headerInfo":"\w+/)+''
+    let url = {
+            url : 'http://dkd-api.dysdk.com/money/withdraw_do?'+dkdbody+'&headerInfo='+str.replace('headerInfo":"',""),
+            headers : JSON.parse(dkdtxhd),
+            body : `{}`,}
+    $.post(url, async (err, resp, data) => {
+      try {
+       //$.log(str.replace('headerInfo":"',""))
+      const result = JSON.parse(data)
+      if(result.status_code == 200){
+      console.log('提现信息:成功🌝 '+result.message)
+      console.log('222提现信息:成功🌝 '+result.data.is_bindwx)
+      if(result.data.is_bindwx == 1){
+        txtd = 2
+        }else {
+        txtd = 1
+      }
+
+      }
+      if(result.status_code == 10020){
+              console.log('提现信息:失败🚫 '+result.message)}
+              } catch (e) {
+                //$.logErr(e, resp);
+              } finally {
+                resolve()
+              }
+        },timeout)
+  })
+}
+
 function dkdtx(timeout = 0) {
   return new Promise((resolve) => {
     let str = dkdtxhd.match(/headerInfo":"\w+/)+''
-    if(txbody >= 50){
-       txval = 50
-      }else{
-       txval = 15
-     }
+
+
 
     console.log('获取txbody成功🌝 ',txbody)
     console.log('提现金额设置成功🌝 ',txval)
     let url = {
             url : 'http://dkd-api.dysdk.com/money/withdraw_do?'+dkdbody+'&headerInfo='+str.replace('headerInfo":"',""),
             headers : JSON.parse(dkdtxhd),
-            body : `{"money":${txval},"type":2,"withdraw_card":null,"program":8,"is_special":1}`,}
+            body : `{"money":${txval},"type":${txtd},"withdraw_card":null,"program":8,"is_special":1}`,}
     $.post(url, async (err, resp, data) => {
       try {
        //$.log(str.replace('headerInfo":"',""))
