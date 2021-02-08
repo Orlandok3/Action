@@ -100,85 +100,116 @@ $.msg(dkdvd_body,"多看点dkdvd_body成功！")
 */
 
 if ($.isNode()) {
-  if (process.env.Dkdurl&& process.env.Dkdurl.indexOf('#') > -1) {
-   dkdurl = process.env.Dkdurl.split('#');
-   console.log(`您選擇的是用"#"隔開\n`)
+    if (process.env.Dkdurl&& process.env.Dkdurl.indexOf('#') > -1) {
+     dkdurl = process.env.Dkdurl.split('#');
+     console.log(`您選擇的是用"#"隔開\n`)
+    }
+    else if (process.env.Dkdurl && process.env.Dkdurl.indexOf('\n') > -1) {
+     dkdurl = process.env.Dkdurl.split('\n');
+     console.log(`您選擇的是用換行隔開\n`)
+    } else {
+     dkdurl = process.env.Dkdurl.split()
+    };
+    Object.keys(dkdurl).forEach((item) => {
+          if (dkdurl[item]) {
+            dkdurlArr.push(dkdurl[item])
+          }
+      });
+    if (process.env.Dkdhd&& process.env.Dkdhd.indexOf('#') > -1) {
+     dkdhd = process.env.Dkdhd.split('#');
+     console.log(`您選擇的是用"#"隔開\n`)
+    }
+    else if (process.env.Dkdhd && process.env.Dkdhd.indexOf('\n') > -1) {
+     dkdhd = process.env.Dkdhd.split('\n');
+     console.log(`您選擇的是用換行隔開\n`)
+    } else {
+     dkdhd = process.env.Dkdhd.split()
+    };
+    Object.keys(dkdhd).forEach((item) => {
+          if (dkdhd[item]) {
+            dkdhdArr.push(dkdhd[item])
+          }
+      });
+    if (process.env.Dkdbody&& process.env.Dkdbody.indexOf('#') > -1) {
+     dkdbody = process.env.Dkdbody.split('#');
+     console.log(`您選擇的是用"#"隔開\n`)
+    }
+    else if (process.env.Dkdbody && process.env.Dkdbody.indexOf('\n') > -1) {
+     dkdbody = process.env.Dkdbody.split('\n');
+     console.log(`您選擇的是用換行隔開\n`)
+    } else {
+     dkdbody = process.env.Dkdbody.split()
+    };
+    Object.keys(dkdbody).forEach((item) => {
+          if (dkdbody[item]) {
+            dkdbodyArr.push(dkdbody[item])
+          }
+      });
+    if (process.env.Dkdtxurl&& process.env.Dkdtxurl.indexOf('#') > -1) {
+     dkdtxurl = process.env.Dkdtxurl.split('#');
+     console.log(`您選擇的是用"#"隔開\n`)
+    }
+    else if (process.env.Dkdtxurl && process.env.Dkdtxurl.indexOf('\n') > -1) {
+     dkdtxurl = process.env.Dkdtxurl.split('\n');
+     console.log(`您選擇的是用換行隔開\n`)
+    } else {
+     dkdtxurl = process.env.Dkdtxurl.split()
+    };
+    Object.keys(dkdtxurl).forEach((item) => {
+          if (dkdtxurl[item]) {
+            dkdtxurlArr.push(dkdtxurl[item])
+          }
+      });
+    if (process.env.Dkdtxhd&& process.env.Dkdtxhd.indexOf('#') > -1) {
+     dkdtxhd = process.env.Dkdtxhd.split('#');
+     console.log(`您選擇的是用"#"隔開\n`)
+    }
+    else if (process.env.Dkdtxhd && process.env.Dkdtxhd.indexOf('\n') > -1) {
+     dkdtxhd = process.env.Dkdtxhd.split('\n');
+     console.log(`您選擇的是用換行隔開\n`)
+    } else {
+     dkdtxhd = process.env.Dkdtxhd.split()
+    };
+    Object.keys(dkdtxhd).forEach((item) => {
+          if (dkdtxhd[item]) {
+            dkdtxhdArr.push(dkdtxhd[item])
+          }
+      });
+    console.log("Arr数量为",dkdurlArr.length)
+
   }
-  else if (process.env.Dkdurl && process.env.Dkdurl.indexOf('\n') > -1) {
-   dkdurl = process.env.Dkdurl.split('\n');
-   console.log(`您選擇的是用換行隔開\n`)
-  } else {
-   dkdurl = process.env.Dkdurl.split()
-  };
+else {
+  dkdurl = process.env.Dkdurl.split()
+  dkdhd = process.env.Dkdhd.split()
+  dkdbody = process.env.Dkdbody.split()
+  dkdtxurl = process.env.Dkdtxurl.split()
+  dkdtxhd = process.env.Dkdtxhd.split()
   Object.keys(dkdurl).forEach((item) => {
         if (dkdurl[item]) {
           dkdurlArr.push(dkdurl[item])
         }
     });
-  if (process.env.Dkdhd&& process.env.Dkdhd.indexOf('#') > -1) {
-   dkdhd = process.env.Dkdhd.split('#');
-   console.log(`您選擇的是用"#"隔開\n`)
-  }
-  else if (process.env.Dkdhd && process.env.Dkdhd.indexOf('\n') > -1) {
-   dkdhd = process.env.Dkdhd.split('\n');
-   console.log(`您選擇的是用換行隔開\n`)
-  } else {
-   dkdhd = process.env.Dkdhd.split()
-  };
   Object.keys(dkdhd).forEach((item) => {
         if (dkdhd[item]) {
           dkdhdArr.push(dkdhd[item])
         }
     });
-  if (process.env.Dkdbody&& process.env.Dkdbody.indexOf('#') > -1) {
-   dkdbody = process.env.Dkdbody.split('#');
-   console.log(`您選擇的是用"#"隔開\n`)
-  }
-  else if (process.env.Dkdbody && process.env.Dkdbody.indexOf('\n') > -1) {
-   dkdbody = process.env.Dkdbody.split('\n');
-   console.log(`您選擇的是用換行隔開\n`)
-  } else {
-   dkdbody = process.env.Dkdbody.split()
-  };
   Object.keys(dkdbody).forEach((item) => {
         if (dkdbody[item]) {
           dkdbodyArr.push(dkdbody[item])
         }
     });
-  if (process.env.Dkdtxurl&& process.env.Dkdtxurl.indexOf('#') > -1) {
-   dkdtxurl = process.env.Dkdtxurl.split('#');
-   console.log(`您選擇的是用"#"隔開\n`)
-  }
-  else if (process.env.Dkdtxurl && process.env.Dkdtxurl.indexOf('\n') > -1) {
-   dkdtxurl = process.env.Dkdtxurl.split('\n');
-   console.log(`您選擇的是用換行隔開\n`)
-  } else {
-   dkdtxurl = process.env.Dkdtxurl.split()
-  };
   Object.keys(dkdtxurl).forEach((item) => {
         if (dkdtxurl[item]) {
           dkdtxurlArr.push(dkdtxurl[item])
         }
     });
-  if (process.env.Dkdtxhd&& process.env.Dkdtxhd.indexOf('#') > -1) {
-   dkdtxhd = process.env.Dkdtxhd.split('#');
-   console.log(`您選擇的是用"#"隔開\n`)
-  }
-  else if (process.env.Dkdtxhd && process.env.Dkdtxhd.indexOf('\n') > -1) {
-   dkdtxhd = process.env.Dkdtxhd.split('\n');
-   console.log(`您選擇的是用換行隔開\n`)
-  } else {
-   dkdtxhd = process.env.Dkdtxhd.split()
-  };
   Object.keys(dkdtxhd).forEach((item) => {
         if (dkdtxhd[item]) {
           dkdtxhdArr.push(dkdtxhd[item])
         }
     });
-
-  console.log("Arr数量为",dkdurlArr.length)
-
-}
+  }
 
 !(async () => {
 
