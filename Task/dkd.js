@@ -189,23 +189,25 @@ $.msg(dkdtxbody,"多看点dkdtxbody成功！")
         dkdbody = dkdbodyArr[i];
         dkdtxurl = dkdtxurlArr[i];
         dkdtxhd = dkdtxhdArr[i];
-        await dkdqd()
+        await dkdxx()
         await dkdgg()
         await dkdsc()
         await dkdbx()
         await dkdbxfb()
-        await dkdsxzp()
-        await dkdcj()
         await dkdfx()
         await dkdxs()
         await dkdz()
         await dkdyq()
+        if (hour <= 13 ){
+        await dkdqd()
+        await dkdsxzp()
+        await dkdcj()
+        }
         console.log("现在时间为",hour)
         if (hour >= 7 && hour <= 16){
           await dkdtxn()
           await dkdtx()
         }
-        await dkdxx()
         await $.wait(100000);
       }
     }
@@ -367,7 +369,7 @@ function dkdfx(timeout = 0) {
 let url = {
         url : 'http://dkd-api.dysdk.com/task/get_award',
         headers : JSON.parse(dkdhd),
-        body : 'id=41&'+dkdbody,}
+        body : 'id=52&'+dkdbody,}
       $.post(url, async (err, resp, data) => {
         try {
            //$.log(dkdbody)
@@ -391,7 +393,7 @@ if(result.status_code == 10020){
   let url = {
           url : 'http://dkd-api.dysdk.com/task/get_award',
           headers : JSON.parse(dkdhd),
-          body : 'id=40&'+dkdbody,}
+          body : 'id=51&'+dkdbody,}
         $.post(url, async (err, resp, data) => {
           try {
              //$.log(dkdbody)
@@ -507,7 +509,7 @@ function dkdtxn(timeout = 0) {
     let str = dkdtxhd.match(/headerInfo":"\w+/)+''
     let url = {
             url : 'http://dkd-api.dysdk.com/money/withdraw_index?'+dkdbody+'&headerInfo='+str.replace('headerInfo":"',""),
-            headers : JSON.parse(dkdtxhd),
+            headers : JSON.parse(dkdhd),
             body : `{}`,}
     $.post(url, async (err, resp, data) => {
       try {
