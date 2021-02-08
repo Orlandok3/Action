@@ -45,6 +45,7 @@ const $ = new Env("多看点视频")
 let dkdbody = $.getdata('dkdbody')
 let dkdhd = $.getdata('dkdhd')
 let bodys = $.getdata("dkdvd_body");
+let hbmiss = 0
 
 const dkdhdArr = []
 const dkdbodyArr = []
@@ -209,6 +210,7 @@ let url = {
         }
         if(result.status_code == 10020){
           console.log('开始视频红包，回执:失败🚫 '+result.message)}
+          console.log('开始视频红包，回执:失败🚫 '+result)}
           await $.wait(50000);
         } catch (e) {
           //$.logErr(e, resp);
