@@ -87,6 +87,7 @@ $.setdata('','dkdbody')
 $.setdata('','dkdtxurl')
 $.setdata('','dkdtxhd')
 $.setdata('','dkdtxbody')
+$.setdata('','dkdvd_body')
 */
 /*
 $.msg(dkdurl,"多看点dkdurl成功！")
@@ -95,6 +96,7 @@ $.msg(dkdbody,"多看点dkdbody成功！")
 $.msg(dkdtxurl,"多看点dkdtxurl成功！")
 $.msg(dkdtxhd,"多看点dkdtxhd成功！")
 $.msg(dkdtxbody,"多看点dkdtxbody成功！")
+$.msg(dkdvd_body,"多看点dkdvd_body成功！")
 */
 !(async () => {
   if (typeof $request !== "undefined") {
