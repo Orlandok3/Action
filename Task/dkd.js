@@ -254,7 +254,7 @@ $.log(dkdtxbody)
           const result = JSON.parse(data)
           if(result.status_code == 200){
              txbody = result.data.cash
-             console.log($.name+'运行完毕！',"",'用户信息回执:成功🌝\n'+'用户名: '+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold+'\n\n')
+             console.log('\n\n'+$.name+'运行完毕！',"",'用户信息回执:成功🌝\n'+'用户名: '+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold)
               }
           //console.log("txbody为",txbody)
           if(result.status_code == 10020){
@@ -516,8 +516,8 @@ function dkdtxn(timeout = 0) {
        //$.log(str.replace('headerInfo":"',""))
       const result = JSON.parse(data)
       if(result.status_code == 200){
-      console.log('提现信息:成功🌝 '+result.message)
-      console.log('222提现信息:成功🌝 '+result.data.is_bindwx)
+      //console.log('提现信息:成功🌝 '+result.message)
+      console.log('提现信息:成功🌝 '+result.message+result.data.is_bindwx)
       bindwith  = result.data.is_bindwx
       }
       if(result.status_code == 10020){
@@ -537,7 +537,7 @@ function dkdtx(timeout = 0) {
     if(txbody >= 50){
        txval = 50
       }else{
-       txval = 15
+       txval = 1
      }
      if( bindwith == 1){
        txtd = 2
