@@ -198,14 +198,14 @@ $.msg(dkdtxbody,"多看点dkdtxbody成功！")
         await dkdcj()
         await dkdfx()
         await dkdxs()
-        await dkdxx()
         await dkdz()
+        await dkdyq()
         console.log("现在时间为",hour)
-        if (hour <= 6){
-          await dkdyq()
+        if (hour >= 7 && hour <= 16){
           await dkdtxn()
           await dkdtx()
         }
+        await dkdxx()
         await $.wait(100000);
       }
     }
@@ -252,7 +252,7 @@ $.log(dkdtxbody)
           const result = JSON.parse(data)
           if(result.status_code == 200){
              txbody = result.data.cash
-             console.log($.name+'运行完毕！',"",'用户信息回执:成功🌝\n'+'用户名: '+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold)
+             console.log($.name+'运行完毕！',"",'用户信息回执:成功🌝\n'+'用户名: '+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold+'\n\n')
               }
               if(txbody >= 50){
                  txval = 50
@@ -545,8 +545,8 @@ function dkdtx(timeout = 0) {
 
 
 
-    console.log('获取txbody成功🌝 ',txbody)
-    console.log('提现金额设置成功🌝 ',txval)
+    //console.log('获取txbody成功🌝 ',txbody)
+    //console.log('提现金额设置成功🌝 ',txval)
     let url = {
             url : 'http://dkd-api.dysdk.com/money/withdraw_do?'+dkdbody+'&headerInfo='+str.replace('headerInfo":"',""),
             headers : JSON.parse(dkdtxhd),
