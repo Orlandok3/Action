@@ -240,7 +240,7 @@ else {
           await dkdsxzp()
           await dkdcj()
         }
-        if (hour >= 7 && hour <= 16){
+        if (hour >= 7 && hour <= 10){
           await dkdtxn()
           await dkdtx()
         }

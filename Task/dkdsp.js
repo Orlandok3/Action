@@ -176,20 +176,17 @@ function AutoRead() {
         console.log(`\n本次视频获得${readres.data.award}个金币，即将开始下次视频👏🏻\n`)
         readscore += readres.data.award;
         await $.wait(30000);
-
       }
-         if (readres.message == '请先领取大额红包再来！') {
+
+      if (readres.message == '请先领取大额红包再来！') {
         console.log(`\n检测到红包，，即将开始领取👏🏻\n`)
-await dkdhbsp();
-
+        await $.wait(10000);
+        await dkdhbsp();
       }
-
       else if (readres.status_code == 10020) {
         console.log(`第${$.index}次视频请求失败,回执🚫: `+readres.message+'等待30秒执行下次视频')
-
-await $.wait(30000);
+        await $.wait(30000);
       }
-
       resolve()
     })
 
@@ -207,11 +204,12 @@ let url = {
            //$.log(dkdhd)
     const result = JSON.parse(data)
         if(result.status_code == 200){
-        console.log('开始视频红包，回执:成功🌝 '+result.data.award)
-readscore += result.data.award;
-}
-if(result.status_code == 10020){
-        console.log('开始视频红包，回执:失败🚫 '+result.message)}
+          console.log('开始视频红包，回执:成功🌝 '+result.data.award)
+          readscore += result.data.award;
+        }
+        if(result.status_code == 10020){
+          console.log('开始视频红包，回执:失败🚫 '+result.message)}
+          await $.wait(50000);
         } catch (e) {
           //$.logErr(e, resp);
         } finally {
