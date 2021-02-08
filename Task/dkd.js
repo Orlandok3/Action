@@ -88,7 +88,6 @@ $.setdata('','dkdtxurl')
 $.setdata('','dkdtxhd')
 $.setdata('','dkdtxbody')
 $.setdata('','dkdvd_body')
-$.setdata('','dkdvd_body')
 */
 /*
 $.msg(dkdurl,"多看点dkdurl成功！")
@@ -98,13 +97,15 @@ $.msg(dkdtxurl,"多看点dkdtxurl成功！")
 $.msg(dkdtxhd,"多看点dkdtxhd成功！")
 $.msg(dkdtxbody,"多看点dkdtxbody成功！")
 $.msg(dkdvd_body,"多看点dkdvd_body成功！")
-$.msg(dkdvd_body,"多看点dkdvd_body成功！")
 */
-!(async () => {
-  if (typeof $request !== "undefined") {
-    await dkdck()
-    await dkdtxck()
-  } else {
+
+if (typeof $request !== "undefined") {
+await dkdck()
+await dkdtxck()
+}
+
+if ($.isNode()) {
+
     if (process.env.Dkdurl&& process.env.Dkdurl.indexOf('#') > -1) {
      dkdurl = process.env.Dkdurl.split('#');
      console.log(`您選擇的是用"#"隔開\n`)
@@ -180,11 +181,16 @@ $.msg(dkdvd_body,"多看点dkdvd_body成功！")
             dkdtxhdArr.push(dkdtxhd[item])
           }
       });
-
     console.log("Arr数量为",dkdurlArr.length)
 
+}
 
-
+!(async () => {
+  if (! dkdurlArr[0]) {
+      $.msg($.name, '🔔請先獲取Cookie')
+      return;
+    }
+  else {
     for (let i = 0; i < dkdurlArr.length; i++) {
       if (dkdurlArr[i]) {
         message = ''
@@ -219,6 +225,7 @@ $.msg(dkdvd_body,"多看点dkdvd_body成功！")
 })()
   .catch((e) => $.logErr(e))
   .finally(() => $.done())
+
 //多看点数据获取
 function dkdck() {
    if ($request.url.indexOf("index") > -1) {
