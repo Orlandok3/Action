@@ -367,7 +367,7 @@ function dkdfx(timeout = 0) {
 let url = {
         url : 'http://dkd-api.dysdk.com/task/get_award',
         headers : JSON.parse(dkdhd),
-        body : 'id=52&'+dkdbody,}
+        body : 'id=41&'+dkdbody,}
       $.post(url, async (err, resp, data) => {
         try {
            //$.log(dkdbody)
@@ -391,7 +391,7 @@ if(result.status_code == 10020){
   let url = {
           url : 'http://dkd-api.dysdk.com/task/get_award',
           headers : JSON.parse(dkdhd),
-          body : 'id=51&'+dkdbody,}
+          body : 'id=40&'+dkdbody,}
         $.post(url, async (err, resp, data) => {
           try {
              //$.log(dkdbody)
@@ -506,8 +506,8 @@ function dkdtxn(timeout = 0) {
   return new Promise((resolve) => {
     let str = dkdtxhd.match(/headerInfo":"\w+/)+''
     let url = {
-            url : 'http://dkd-api.dysdk.com/money/withdraw_do?'+dkdbody+'&headerInfo='+str.replace('headerInfo":"',""),
-            headers : JSON.parse(dkdhd),
+            url : 'http://dkd-api.dysdk.com/money/withdraw_index?'+dkdbody+'&headerInfo='+str.replace('headerInfo":"',""),
+            headers : JSON.parse(dkdtxhd),
             body : `{}`,}
     $.post(url, async (err, resp, data) => {
       try {
