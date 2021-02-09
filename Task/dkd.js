@@ -578,7 +578,7 @@ function dkdtx(timeout = 0) {
        txval = 15
      }
      else {
-       return
+       resolve()
      }
      if( bindwith == 1){
        txtd = 2
