@@ -230,7 +230,6 @@ else {
         dkdtxurl = dkdtxurlArr[i];
         dkdtxhd = dkdtxhdArr[i];
         await dkdxx()
-        await dkdgg()
         await dkdsc()
         await dkdbx()
         await dkdbxfb()
@@ -239,6 +238,7 @@ else {
         await dkdyq()
         console.log("现在时间为",hour)
         if (hour <= 13 ){
+          await dkdgg()
           await dkdfx()
           await dkdxs()
           await dkdqd()
@@ -460,7 +460,7 @@ if(result.status_code == 10020){
 
   let url = {
           url : 'http://dkd-api.dysdk.com/video/extra_get',
-          headers : JSON.parse($.getdata('dkdhd')),
+          headers : JSON.parse(dkdhd),
           body : dkdbody,}
         $.post(url, async (err, resp, data) => {
           try {
