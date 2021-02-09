@@ -228,6 +228,7 @@ else {
         dkdtxurl = dkdtxurlArr[i];
         dkdtxhd = dkdtxhdArr[i];
         await dkdxx()
+        await dkdxsdl()
         await dkdxsbg()
         await $.wait(50000);
         await dkdxsyd()
@@ -478,7 +479,48 @@ if(result.status_code == 10020){
     })
   }
 
-  //多看点小说
+  //多看点小说、
+  function dkdxsdl(timeout = 0) {
+    return new Promise((resolve) => {
+      let timestamp=new Date().getTime();
+      let url = {
+              url : `http://www.ipadview.com/rpads/score/getSignInCount?userId=89106240&productId=8936`,
+              headers : {
+                          'Origin' : `http://ele.adipman.net`,
+                          'Accept-Encoding' : `gzip, deflate`,
+                          'info-imei' : `6B977A157EE2FC15`,
+                          'Connection' : `keep-alive`,
+                          'Accept' : `application/json, text/plain, */*`,
+                          'Host' : `www.ipadview.com`,
+                          'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`,
+                          'Referer' : `http://ele.adipman.net/app/reader/733596?channel=eleios&t=6&tk=eleios20201103&bookStore=3&inner=1`,
+                          'Accept-Language' : `zh-cn`,
+                          'info-city' : `%E5%B9%BF%E5%B7%9E`
+                          },
+              body : ``,}
+            $.GET(url, async (err, resp, data) => {
+              try {
+                console.log("阅读登录数据： " + data);
+                 //$.log(dkdbody)
+                const result = JSON.parse(data)
+                if(result.code == 0){
+                        console.log('小说阅读任务登录回执:成功🌝 '+result)
+                      }
+                if(result.code == 1){
+                        console.log('小说阅读任务登录回执:失败🚫 '+result.message)
+                      }
+                if(result.code == 10020){
+                        console.log('小说阅读任务登录回执:失败🚫 '+result.message)
+                      }
+          } catch (e) {
+            //$.logErr(e, resp);
+          } finally {
+            resolve()
+          }
+      },timeout)
+    })
+  }
+
   function dkdxsbg(timeout = 0) {
     return new Promise((resolve) => {
       let timestamp=new Date().getTime();
@@ -517,7 +559,7 @@ if(result.status_code == 10020){
                           'info-adver' : `39`
                           },
               body : ``,}
-            $.post(url, async (err, resp, data) => {
+            $.GET(url, async (err, resp, data) => {
               try {
                 console.log("阅读开始数据： " + data);
                  //$.log(dkdbody)
