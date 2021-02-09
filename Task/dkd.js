@@ -228,6 +228,8 @@ else {
         dkdtxurl = dkdtxurlArr[i];
         dkdtxhd = dkdtxhdArr[i];
         await dkdxx()
+        await dkdxsbg()
+        await $.wait(50000);
         await dkdxsyd()
         await dkdgg()
         await dkdsc()
@@ -477,8 +479,70 @@ if(result.status_code == 10020){
   }
 
   //多看点小说
+  function dkdxsbg(timeout = 0) {
+    return new Promise((resolve) => {
+      let timestamp=new Date().getTime();
+      let url = {
+              url : `http://www.ipadview.com/rpads/score/beginRead?userId=89106240&productId=8936&bookId=733596&chapterId=104735292`,
+              headers : { 'screen-inches' : `4.7`,
+                          'info-subversion' : `1`,
+                          'info-model' : `iPhone`,
+                          'info-userid' : `89106240`,
+                          'info-network' : `3`,
+                          'Host' : `www.ipadview.com`,
+                          'Accept-Encoding' : `gzip, deflate`,
+                          'info-vcode' : `b6fe876de0c3fbe834956bfd54069ff7`,
+                          'info-idfa' : `C6B1D4DF-7192-4D58-99E1-344E824B3474`,
+                          'info-dt' : `phone_ad_sdk`,
+                          'Connection' : `keep-alive`,
+                          'info-product' : `8936`,
+                          'info-lon' : `0`,
+                          'Accept-Language' : `zh-cn`,
+                          'info-imei' : `6B977A157EE2FC15`,
+                          'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`,
+                          'screen-width' : `828`,
+                          'info-platform' : `ios`,
+                          'info-pkg' : `com.duoyou.duokandian1`,
+                          'info-version' : `3.0.2`,
+                          'screen-height' : `1792`,
+                          'info-lat' : `0`,
+                          'info-sv' : `7600`,
+                          'info-time' : `${timestamp}`,
+                          'Accept' : `*/*`,
+                          'info-os' : `iOS13.6.1`,
+                          'info-source' : `sdk`,
+                          'info-channel' : `appStore`,
+                          'info-city' : `%E5%B9%BF%E5%B7%9E`,
+                          'info-idfv' : `E4A0DF61-B50B-44EB-B770-19473215CF6B`,
+                          'info-adver' : `39`
+                          },
+              body : ``,}
+            $.post(url, async (err, resp, data) => {
+              try {
+                console.log("阅读开始数据： " + data);
+                 //$.log(dkdbody)
+                const result = JSON.parse(data)
+                if(result.code == 0){
+                        console.log('小说阅读任务开始回执:成功🌝 '+result)
+                      }
+                if(result.code == 1){
+                        console.log('小说阅读任务开始回执:失败🚫 '+result.message)
+                      }
+                if(result.code == 10020){
+                        console.log('小说阅读任务开始回执:失败🚫 '+result.message)
+                      }
+          } catch (e) {
+            //$.logErr(e, resp);
+          } finally {
+            resolve()
+          }
+      },timeout)
+    })
+  }
+
   function dkdxsyd(timeout = 0) {
     return new Promise((resolve) => {
+      await $.await(30000);
       let timestamp=new Date().getTime();
       let url = {
               url : `http://www.ipadview.com/rpads/score/award?bookId=733596&chapterId=104735302&userId=89106240&productId=8936&imei=6B977A157EE2FC15&projectId=198&st=${timestamp}&cs=eb9ee94429ccb7c099c9a058592b7720&bookName=%E7%BD%91%E6%B8%B8%E4%B9%8B%E7%95%85%E6%B8%B8&bookType=0&bookChannel=1`,
