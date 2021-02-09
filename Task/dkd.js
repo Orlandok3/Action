@@ -241,7 +241,7 @@ else {
           await dkdsxzp()
           await dkdcj()
         }
-        if (hour >= 7 && hour <= 10){
+        if (hour >= 7 && hour <= 10 && txbody >= 15){
           await dkdtxn()
           await dkdtx()
         }
@@ -574,11 +574,8 @@ function dkdtx(timeout = 0) {
     if(txbody >= 50){
        txval = 50
       }
-    else if(txbody >= 15){
-       txval = 15
-     }
      else {
-       resolve()
+        txval = 15
      }
      if( bindwith == 1){
        txtd = 2
