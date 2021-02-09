@@ -241,11 +241,11 @@ else {
           await dkdsxzp()
           await dkdcj()
         }
-        if (hour >= 7 && hour <= 10 && txbody >= 15){
+        if (hour >= 7 && hour <= 10 && txbody >= 5){
           await dkdtxn()
           await dkdtx()
         }
-        await $.wait(30000);
+        await $.wait(10000);
       }
     }
   }
@@ -575,7 +575,7 @@ function dkdtx(timeout = 0) {
        txval = 50
       }
      else {
-        txval = 15
+        txval = 5
      }
      if( bindwith == 1){
        txtd = 2
