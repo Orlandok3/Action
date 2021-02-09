@@ -498,7 +498,7 @@ if(result.status_code == 10020){
                           'info-city' : `%E5%B9%BF%E5%B7%9E`
                           },
               body : ``,}
-            $.GET(url, async (err, resp, data) => {
+            $.post(url, async (err, resp, data) => {
               try {
                 console.log("阅读登录数据： " + data);
                  //$.log(dkdbody)
@@ -559,7 +559,7 @@ if(result.status_code == 10020){
                           'info-adver' : `39`
                           },
               body : ``,}
-            $.GET(url, async (err, resp, data) => {
+            $.post(url, async (err, resp, data) => {
               try {
                 console.log("阅读开始数据： " + data);
                  //$.log(dkdbody)
