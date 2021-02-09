@@ -542,7 +542,6 @@ if(result.status_code == 10020){
 
   function dkdxsyd(timeout = 0) {
     return new Promise((resolve) => {
-      await $.await(30000);
       let timestamp=new Date().getTime();
       let url = {
               url : `http://www.ipadview.com/rpads/score/award?bookId=733596&chapterId=104735302&userId=89106240&productId=8936&imei=6B977A157EE2FC15&projectId=198&st=${timestamp}&cs=eb9ee94429ccb7c099c9a058592b7720&bookName=%E7%BD%91%E6%B8%B8%E4%B9%8B%E7%95%85%E6%B8%B8&bookType=0&bookChannel=1`,
