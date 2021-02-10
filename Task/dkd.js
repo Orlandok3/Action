@@ -65,6 +65,7 @@ TG电报群: https://t.me/hahaha8028
 hostname = dkd-api.dysdk.com
 */
 const $ = new Env('多看点');
+const notify = $.isNode() ?require('./sendNotify') : '';
 let dkdurl = $.getdata('dkdurl')
 let dkdhd = $.getdata('dkdhd')
 let dkdbody = $.getdata('dkdbody')
@@ -300,7 +301,7 @@ $.log(dkdtxbody)
              cash = result.data.cash
              today_gold = result.data.today_gold
              console.log('\n\n'+$.name+'运行开始！',"",'用户信息回执:成功🌝\n'+'用户名: 666'+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold)
-             if (hour == 15 ){
+             if (hour >= 15 ){
                await notify.sendNotify(`${$.name}-账号${$.index}-${$.nickname}今日收益${today_gold}` , `账号${$.index} - ${$.nickname} \n您的余额约${cash}元，今日收益${today_gold}`)
                }
             }
