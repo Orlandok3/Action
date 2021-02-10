@@ -102,11 +102,18 @@ return new Promise((resolve, reject) => {
    $.post(userInfo,async(error, response, data) =>{
      const userinfo = JSON.parse(data)
      if(response.statusCode == 200 && userinfo.code != -1){
-$.log('\n🎉模擬登陸成功\n')
-     notice += '🎉步步寶帳號: '+userinfo.username+'\n'+'🎉當前金幣: '+userinfo.jinbi+'🎉今日金幣: '+userinfo.day_jinbi+'💰 約'+userinfo.money+'元💸\n'
+
+        $.log('\n🎉模擬登陸成功\n')
+        money = userinfo.money
+        nickname = userinfo.username
+        today_gold = userinfo.day_jinbi
+        notice += '🎉步步寶帳號: '+userinfo.username+'\n'+'🎉當前金幣: '+userinfo.jinbi+'🎉今日金幣: '+userinfo.day_jinbi+'💰 約'+userinfo.money+'元💸\n'
     }else{
-     notice += '⚠️異常原因: '+userinfo.msg+'\n'
+        notice += '⚠️異常原因: '+userinfo.msg+'\n'
            }
+     if (money >= 50 ){
+       await notify.sendNotify(`${$.name}-账号${nickname} 余额${money}元已提现` , `账号${nickname} ${money}元已提现 \n今日收益为${today_gold}`)
+       }
           resolve()
     })
    })
