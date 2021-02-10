@@ -223,6 +223,7 @@ else {
     console.log("555")
     for (let i = 0; i < dkdurlArr.length; i++) {
       if (dkdurlArr[i]) {
+        $.index = i + 1;
         message = ''
         dkdurl = dkdurlArr[i];
         dkdhd = dkdhdArr[i];
@@ -295,8 +296,14 @@ $.log(dkdtxbody)
           const result = JSON.parse(data)
           if(result.status_code == 200){
              txbody = result.data.cash
+             nickname = result.data.nickname
+             cash = result.data.cash
+             today_gold = result.data.today_gold
              console.log('\n\n'+$.name+'运行开始！',"",'用户信息回执:成功🌝\n'+'用户名: 666'+result.data.nickname+'\n当前余额:'+result.data.cash+'\n总金币:'+result.data.gold+'\n今日金币:'+result.data.today_gold)
-              }
+             if (hour == 15 ){
+               await notify.sendNotify(`${$.name}-账号${$.index}-${$.nickname}今日收益${today_gold}` , `账号${$.index} - ${$.nickname} \n您的余额约${cash}元，今日收益${today_gold}`)
+               }
+            }
           //console.log("txbody为",txbody)
           if(result.status_code == 10020){
             console.log($.name,"",'运行完毕，用户信息获取失败🚫 '+result.message)}
@@ -609,9 +616,11 @@ function dkdtx(timeout = 0) {
         txval = 5
      }
      if( bindwith == 1){
-       txtd = 2
+       txtd = 2  //vx
+       td = '微信'
        }else {
-       txtd = 1
+       txtd = 1  //zfb
+       td = '支付宝'
      }
     //console.log('获取txbody成功🌝 ',txbody)
     //console.log('提现金额设置成功🌝 ',txval)
@@ -625,6 +634,7 @@ function dkdtx(timeout = 0) {
       const result = JSON.parse(data)
       if(result.status_code == 200){
       console.log('提现回执:成功🌝 '+result.message)
+      await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickname}已提现${txval}元` , `【提醒⏰】账号${$.index} - ${$.nickname} \n您的余额约${cash}元，已提现${txval}元，通道为${td}`)
       }
       if(result.status_code == 10020){
               console.log('提现回执:失败🚫 '+result.message)}
