@@ -113,7 +113,7 @@ return new Promise((resolve, reject) => {
         notice += '⚠️異常原因: '+userinfo.msg+'\n'
            }
      if (money >= 50 ){
-       await notify.sendNotify(`${$.name}-账号${nickname} 余额${money}元已提现` , `账号${nickname} ${money}元已提现 \n今日收益为${today_gold}`)
+       notify.sendNotify(`${$.name}-账号${nickname} 余额${money}元已提现` , `账号${nickname} ${money}元已提现 \n今日收益为${today_gold}`)
        }
           resolve()
     })
